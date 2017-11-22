@@ -4,7 +4,7 @@ module.exports = function (app) {
 
     app.post('/analyze', function (req, res) {
 
-        var item = req.body;
+        var item = req.body.text;
 
         var toneAnalyzer = new app.infra.ToneAnalyzer();
 
