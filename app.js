@@ -1,8 +1,6 @@
-var app = require('./config/express')();
-var http = require('http').Server(app);
+var server = require('./toneExample.js');
+var port = process.env.PORT || process.env.VCAP_APP_PORT || 3000;
 
-var porta = process.env.PORT || 3000;
-
-http.listen(porta, function(){
-    console.log("Servidor rodando");
+server.listen(port, function() {
+  console.log('Server running on port: %d', port);
 });
