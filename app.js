@@ -12,9 +12,9 @@ router.post('/info', function(req, res) {
     var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
     var tone_analyzer = new ToneAnalyzerV3({
-     username: 'yourUsername',
-     password: 'yourPassword',
-     version_date: '2016-05-19'
+    username: 'ea5a0727-769c-4c8c-aa8b-5521c378aa73',
+    password: '7PA6sYyClY5J',
+    version_date: '2016-05-19'
      });
 
     tone_analyzer.tone({
