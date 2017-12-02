@@ -64,6 +64,7 @@ visionClient.batchAnnotateImages({requests: requests}).then(function(responses) 
             
             
 })
+});
             
 
 
