@@ -1,6 +1,7 @@
 var http = require('http');
 var bodyParser = require("body-parser");
 var express = require('express');
+var vision = require('@google-cloud/vision');
 var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
