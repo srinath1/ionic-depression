@@ -25,6 +25,8 @@
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "express-load": "^1.1.16",
-    "watson-developer-cloud": "^2.39.0"
+    "watson-developer-cloud": "^2.39.0",
+    "@google-cloud/vision": "^0.12.0",
+     "async": "~0.2.8"
   }
 }
