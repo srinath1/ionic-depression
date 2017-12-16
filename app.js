@@ -47,7 +47,8 @@ res.send(age);
 const triad = darktriad(str, opts1);
 	 res.send(triad);
 console.log(triad)
-	 
+	 const age = pa(str, opts);
+res.send(age);
  })
 
 
