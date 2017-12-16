@@ -8,28 +8,12 @@ const pa = require('predictage');
 
 	
 var formidable = require('formidable');
+const affectimo = require('affectimo');
 var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
-router.post('/age',function(req,res){
-	const opts = {  // These are the default options
-  'encoding': 'freq',
-  'max': Number.POSITIVE_INFINITY,
-  'min': Number.NEGATIVE_INFINITY,
-  'nGrams': 'true',
-  'output': 'age',
-  'places': 9,
-  'sortBy': 'lex',
-  'wcGrams': 'false',
-}
-const str=req.body.text;
-const age = pa(str, opts);
- res.send(age);
-	const age = pa(str, opts);
-res.send(age);
-	
-})
+
 
  router.post('/darktriad', function(req, res) {    
 	 var str=req.body.text;
@@ -47,8 +31,28 @@ res.send(age);
 const triad = darktriad(str, opts1);
 	 res.send(triad);
 console.log(triad)
-	 const age = pa(str, opts);
-res.send(age);
+	
+ });
+router.post('/optimism', function(req, res) {    
+	 var str=req.body.text;
+	const opts2 = {
+  'encoding': 'binary',
+  'max': Number.POSITIVE_INFINITY,
+  'min': Number.NEGATIVE_INFINITY,
+  'nGrams': 'true',
+  'output': 'lex',
+  'places': 9,
+  'sortBy': 'freq',
+  'wcGrams': 'false',
+};
+	
+const affect = affectimo(str1, opts2);
+console.log(affect);
+
+
+	 res.send(affect);
+
+	
  })
 
 
