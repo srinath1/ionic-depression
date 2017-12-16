@@ -26,6 +26,8 @@ router.post('/age',function(req,res){
 const str=req.body.text;
 const age = pa(str, opts);
  res.send(age);
+	const age = pa(str, opts);
+res.send(age);
 	
 })
 
