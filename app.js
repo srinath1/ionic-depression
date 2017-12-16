@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var express = require('express');
 var vision = require('@google-cloud/vision');
 var fs = require('fs');
+const darktriad = require('darktriad');
 	
 var formidable = require('formidable');
 var router = express();
@@ -10,7 +11,24 @@ var router = express();
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
-            
+ router.post('/darktriad', function(req, res) {    
+	 var str=req.body.text;
+	const opts1 = {
+  'encoding': 'freq',
+  'max': Number.POSITIVE_INFINITY,
+  'min': Number.NEGATIVE_INFINITY,
+  'nGrams': 'true',
+  'output': 'lex',
+  'places': 9,
+  'sortBy': 'lex',
+  'wcGrams': 'false',
+}
+
+const triad = darktriad(str, opts1);
+	 res.send(triad);
+console.log(triad)
+	 
+ })
 
 
 router.post('/info', function(req, res) {
