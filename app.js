@@ -4,12 +4,30 @@ var express = require('express');
 var vision = require('@google-cloud/vision');
 var fs = require('fs');
 const darktriad = require('darktriad');
+const pa = require('predictage');
+
 	
 var formidable = require('formidable');
 var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
+router.post('/age',function(req,res){
+	const opts = {  // These are the default options
+  'encoding': 'freq',
+  'max': Number.POSITIVE_INFINITY,
+  'min': Number.NEGATIVE_INFINITY,
+  'nGrams': 'true',
+  'output': 'age',
+  'places': 9,
+  'sortBy': 'lex',
+  'wcGrams': 'false',
+}
+const str=req.body.text;
+const age = pa(str, opts);
+ res.send(age);
+	
+})
 
  router.post('/darktriad', function(req, res) {    
 	 var str=req.body.text;
