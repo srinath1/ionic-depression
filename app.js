@@ -30,7 +30,7 @@ router.post('/age', function(req, res) {
   var str=req.body.text;
 const age = pa(str, opts1);
 console.log(age);
-	res.send(affect);
+	res.send(age);
 	
  });
 
