@@ -27,7 +27,7 @@ router.post('/age', function(req, res) {
   'wcGrams': 'false',
 }
 
-  var str=req.body.text;
+ 
 const age = pa(str, opts1);
 console.log(age);
 	res.send(age);
