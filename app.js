@@ -4,15 +4,35 @@ var express = require('express');
 var vision = require('@google-cloud/vision');
 var fs = require('fs');
 const darktriad = require('darktriad');
+const affectimo = require('affectimo');
 const pa = require('predictage');
 
 	
 var formidable = require('formidable');
-const affectimo = require('affectimo');
+
 var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
+router.post('/age', function(req, res) {    
+	 var str=req.body.text;
+	const opts1 = {
+  'encoding': 'freq',
+  'max': Number.POSITIVE_INFINITY,
+  'min': Number.NEGATIVE_INFINITY,
+  'nGrams': 'true',
+  'output': 'age',
+  'places': 9,
+  'sortBy': 'lex',
+  'wcGrams': 'false',
+}
+
+  var str=req.body.text;
+const age = pa(str, opts1);
+console.log(age);
+	res.send(affect);
+	
+ });
 
 
  router.post('/darktriad', function(req, res) {    
@@ -32,7 +52,7 @@ const triad = darktriad(str, opts1);
 	 res.send(triad);
 console.log(triad)
 	
- });
+ })
 router.post('/optimism', function(req, res) {    
 	 var str=req.body.text;
 	const opts2 = {
@@ -46,7 +66,7 @@ router.post('/optimism', function(req, res) {
   'wcGrams': 'false',
 };
 	
-const affect = affectimo(str1, opts2);
+const affect = affectimo(str, opts2);
 console.log(affect);
 
 
