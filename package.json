@@ -33,6 +33,8 @@
     "predictage": "^1.0.0",
      "darktriad": "^1.0.0",
      "reading-time": "^1.1.0",
+    "words-per-minute": "^1.1.2",
+    "reading-time": "^1.1.0",
    
     "string": "^3.3.0"
 
