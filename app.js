@@ -6,6 +6,7 @@ var fs = require('fs');
 const darktriad = require('darktriad');
 const affectimo = require('affectimo');
 const pa = require('predictage');
+var readingTime = require('reading-time');
 
 	
 var formidable = require('formidable');
@@ -14,6 +15,14 @@ var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
+router.post('/wordsperminute',function(req,res){
+	 var str=req.body.text;
+	var stats = readingTime(text);
+  console.log(stats)
+	res.send(stats);
+	
+	
+})
 router.post('/age', function(req, res) {    
 	 var str=req.body.text;
 	const opts1 = {
