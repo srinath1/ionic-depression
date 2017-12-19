@@ -17,7 +17,7 @@ router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 router.post('/wordsperminute',function(req,res){
 	 var str=req.body.text;
-	var stats = readingTime(text);
+	var stats = readingTime(str);
   console.log(stats)
 	res.send(stats);
 	
