@@ -37,15 +37,15 @@ router.get('/videos',function(req,res){
         "actors": []
     },
     "images": {
-        "cover": "cover-bigbuckbunny.png",
-        "placeholder": "placeholder-bigbuckbunny-1080p.png"
+        "cover": "https://i.ytimg.com/vi/FRUcgZW1G2U/maxresdefault.jpg",
+        "placeholder": "https://i.ytimg.com/vi/FRUcgZW1G2U/maxresdefault.jpg"
     },
     "streams": [{
         "type": "mp4",
-        "url": "http://media.clarify.io/video/presentations/DanGilbert-TED2004-The-Surprising-Science-of-Happiness.mp4"
+        "url": "https://www.youtube.com/embed/Vy0ZRpCn2Wo?rel=0&modestbranding=1"
     }, {
         "type": "ogv",
-        "url": "http://media.clarify.io/video/presentations/DanGilbert-TED2004-The-Surprising-Science-of-Happiness.mp4"
+        "url": "https://www.youtube.com/embed/Vy0ZRpCn2Wo?rel=0&modestbranding=1"
     }]
 }, {
     "id": "2",
@@ -63,8 +63,8 @@ router.get('/videos',function(req,res){
         }]
     },
     "images": {
-        "cover": "cover-sintel.png",
-        "placeholder": "placeholder-sintel-1080p.png"
+        "cover": "https://jbwye.files.wordpress.com/2013/12/elephant.jpg",
+        "placeholder": "https://jbwye.files.wordpress.com/2013/12/elephant.jpg"
     },
     "streams":"http://media.clarify.io/video/presentations/ShawnAchor-TEDxBloomington-The-Happy-Secret-to-Better-Work.mp4"
     
@@ -84,8 +84,8 @@ router.get('/videos',function(req,res){
         }]
     },
     "images": {
-        "cover": "cover-elephantsdream.png",
-        "placeholder": "placeholder-elephantsdream-1080p.png"
+        "cover": "http://www.boating-paris-marindeaudouce.com/wp-content/uploads/a-rich-and-diverse-nature-can-be-discovered-on-the-marne-river-banks-from-silent-electric-boats-1030x679.jpg",
+        "placeholder": "http://www.boating-paris-marindeaudouce.com/wp-content/uploads/a-rich-and-diverse-nature-can-be-discovered-on-the-marne-river-banks-from-silent-electric-boats-1030x679.jpg"
     },
     "streams": "http://lachy.id.au/lib/media/elephantsdream/Elephants_Dream-360p-Stereo.webm"
     
@@ -103,8 +103,8 @@ router.get('/videos',function(req,res){
         }]
     },
     "images": {
-        "cover": "cover-sita.png",
-        "placeholder": "placeholder-sitasingstheblues-1080p.png"
+        "cover": "https://www.photocase.com/photos/5887-water-river-baden-wuerttemberg-danube-upper-danube-valley-photocase-stock-photo-large.jpeg",
+        "placeholder": "https://www.photocase.com/photos/5887-water-river-baden-wuerttemberg-danube-upper-danube-valley-photocase-stock-photo-large.jpeg"
     },
     "streams":"http://media.clarify.io/video/presentations/Midwest.io-Jeff-Norris-Mission-Critical-Innovation.mp4"
   
@@ -121,8 +121,8 @@ router.get('/videos',function(req,res){
         "actors": []
     },
     "images": {
-        "cover": "cover-bigbuckbunny.png",
-        "placeholder": "placeholder-bigbuckbunny-1080p.png"
+        "cover": "https://www.photocase.com/photos/38423-fog-river-slope-cliff-photocase-stock-photo-large.jpeg",
+        "placeholder": "https://www.photocase.com/photos/38423-fog-river-slope-cliff-photocase-stock-photo-large.jpeg"
     },
     "streams": "http://media.clarify.io/video/presentations/Midwest.io-Keith-Casey-On-the-Edge-of-Hypermedia.mp4http://media.w3.org/2010/05/bunny/movie.mp4"
    
@@ -138,12 +138,12 @@ router.get('/videos',function(req,res){
         "actors": []
     },
     "images": {
-        "cover": "cover-elephantsdream.png",
-        "placeholder": "placeholder-elephantsdream-1080p.png"
+        "cover": "https://static1.squarespace.com/static/51959b80e4b0acc777d86621/52086014e4b01247d70ab798/54dad479e4b0f27615457a22/1423627395952/P0982+-+Battleship+Lake+-+Full+Size+No+Watermark.jpg?format=500w",
+        "placeholder": "https://static1.squarespace.com/static/51959b80e4b0acc777d86621/52086014e4b01247d70ab798/54dad479e4b0f27615457a22/1423627395952/P0982+-+Battleship+Lake+-+Full+Size+No+Watermark.jpg?format=500w"
     },
     "streams": "http://media.clarify.io/video/presentations/SimonSinek-TEDxPugetSound-How-Great-Leaders-Inspire-Action.mp4"
 }]
-);
+)
 	
 	
 })
