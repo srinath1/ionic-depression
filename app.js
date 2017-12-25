@@ -42,10 +42,7 @@ router.get('/videos',function(req,res){
     },
     "streams": [{
         "type": "mp4",
-        "url": "https://www.youtube.com/embed/Vy0ZRpCn2Wo?rel=0&modestbranding=1"
-    }, {
-        "type": "ogv",
-        "url": "https://www.youtube.com/embed/Vy0ZRpCn2Wo?rel=0&modestbranding=1"
+        "url": "https://drive.google.com/open?id=1TIppwuEMgghYmLNSm3y47ue1o8NxhnYz"
     }]
 }, {
     "id": "2",
@@ -66,7 +63,7 @@ router.get('/videos',function(req,res){
         "cover": "https://jbwye.files.wordpress.com/2013/12/elephant.jpg",
         "placeholder": "https://jbwye.files.wordpress.com/2013/12/elephant.jpg"
     },
-    "streams":"http://media.clarify.io/video/presentations/ShawnAchor-TEDxBloomington-The-Happy-Secret-to-Better-Work.mp4"
+    "streams":"https://drive.google.com/open?id=1lEB87zMtUMLLWS0PNenSQ0IRpDh8PWqB"
     
     }, {
     "id": "3",
@@ -87,7 +84,7 @@ router.get('/videos',function(req,res){
         "cover": "http://www.boating-paris-marindeaudouce.com/wp-content/uploads/a-rich-and-diverse-nature-can-be-discovered-on-the-marne-river-banks-from-silent-electric-boats-1030x679.jpg",
         "placeholder": "http://www.boating-paris-marindeaudouce.com/wp-content/uploads/a-rich-and-diverse-nature-can-be-discovered-on-the-marne-river-banks-from-silent-electric-boats-1030x679.jpg"
     },
-    "streams": "http://lachy.id.au/lib/media/elephantsdream/Elephants_Dream-360p-Stereo.webm"
+    "streams": "https://drive.google.com/open?id=1mlBA400Y5mJbS6M3izzbFk7cNVOmGQFV"
     
 }, {
     "id": "4",
@@ -106,7 +103,7 @@ router.get('/videos',function(req,res){
         "cover": "https://www.photocase.com/photos/5887-water-river-baden-wuerttemberg-danube-upper-danube-valley-photocase-stock-photo-large.jpeg",
         "placeholder": "https://www.photocase.com/photos/5887-water-river-baden-wuerttemberg-danube-upper-danube-valley-photocase-stock-photo-large.jpeg"
     },
-    "streams":"http://media.clarify.io/video/presentations/Midwest.io-Jeff-Norris-Mission-Critical-Innovation.mp4"
+    "streams":"https://drive.google.com/open?id=1jOkLTxfneKxea4uPqaDI8BIs2o_M2meq"
   
 },
 {
@@ -124,7 +121,7 @@ router.get('/videos',function(req,res){
         "cover": "https://www.photocase.com/photos/38423-fog-river-slope-cliff-photocase-stock-photo-large.jpeg",
         "placeholder": "https://www.photocase.com/photos/38423-fog-river-slope-cliff-photocase-stock-photo-large.jpeg"
     },
-    "streams": "http://media.clarify.io/video/presentations/Midwest.io-Keith-Casey-On-the-Edge-of-Hypermedia.mp4http://media.w3.org/2010/05/bunny/movie.mp4"
+    "streams": "https://drive.google.com/open?id=1p5OzFqI_ZJyjQQbZPXN209XKWYAICoHS"
    
 },{
     "id": "6",
