@@ -6,6 +6,7 @@ var fs = require('fs');
 const darktriad = require('darktriad');
 const affectimo = require('affectimo');
 const pa = require('predictage');
+const pg = require('predictgender')
 var readingTime = require('reading-time');
 
 	
@@ -23,22 +24,21 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
-router.post('/predictage', function(req, res) {    
-	 const str=req.body.text;
-	const opts1 = {
+router.post('/gender', function(req, res) {    
+	 const opts = {  // These are the default options:
   'encoding': 'freq',
   'max': Number.POSITIVE_INFINITY,
   'min': Number.NEGATIVE_INFINITY,
   'nGrams': 'true',
-  'output': 'age',
+  'output': 'gender',
   'places': 9,
   'sortBy': 'lex',
   'wcGrams': 'false',
 }
-	
-const age = pa(str, opts1)
-console.log(age)
-	response.send(age)
+const text = 'I am happy'
+const gender = pg(text, opts)
+console.log(gender)
+	console.log(gender)
 	
 	})
 
