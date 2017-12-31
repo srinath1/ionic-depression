@@ -30,7 +30,7 @@ router.post('/gender', function(req, res) {
   'max': Number.POSITIVE_INFINITY,
   'min': Number.NEGATIVE_INFINITY,
   'nGrams': 'true',
-  'output': 'gender',
+  'output': 'age',
   'places': 9,
   'sortBy': 'lex',
   'wcGrams': 'false',
