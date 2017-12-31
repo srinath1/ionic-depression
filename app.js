@@ -38,7 +38,7 @@ router.post('/gender', function(req, res) {
 const text = 'I am happy'
 const gender = pg(text, opts)
 console.log(gender)
-	console.log(gender)
+	res.send(gender)
 	
 	})
 
