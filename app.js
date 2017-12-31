@@ -23,6 +23,25 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
+router.post('/predictage', function(req, res) {    
+	 const str=req.body.text;
+	const opts1 = {
+  'encoding': 'freq',
+  'max': Number.POSITIVE_INFINITY,
+  'min': Number.NEGATIVE_INFINITY,
+  'nGrams': 'true',
+  'output': 'age',
+  'places': 9,
+  'sortBy': 'lex',
+  'wcGrams': 'false',
+}
+	
+const age = pa(str, opts1)
+console.log(age)
+	response.send(age)
+	
+	})
+
 router.get('/videos',function(req,res){
 	
 	res.send([{
