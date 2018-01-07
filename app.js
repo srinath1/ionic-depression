@@ -25,11 +25,7 @@ WikiFakt.getRandomFact().then(function(fact) {
   console.log(fact);
 });
  
-// Get an article title 
-WikiFakt.getRandomArticleTitle().then(function(title) {
-  console.log(title);
-	res.send(title)
-});
+
 
 	
 })
