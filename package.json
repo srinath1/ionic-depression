@@ -34,9 +34,7 @@
      "darktriad": "^1.0.0",
      "reading-time": "^1.1.0",
      "predictgender": "^1.0.0",
-    
-   
-   
+     "wikifakt": "^1.0.3",   
     "string": "^3.3.0"
 
   }
