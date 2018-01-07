@@ -8,6 +8,7 @@ const affectimo = require('affectimo');
 const pa = require('predictage');
 const pg = require('predictgender')
 var readingTime = require('reading-time');
+var WikiFakt = require('wikifakt');
 
 	
 var formidable = require('formidable');
@@ -16,6 +17,22 @@ var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
+router.get('/randomfacts',function(req,res){
+	
+	// Get a fact 
+WikiFakt.getRandomFact().then(function(fact) {
+	res.send(fact)
+  console.log(fact);
+});
+ 
+// Get an article title 
+WikiFakt.getRandomArticleTitle().then(function(title) {
+  console.log(title);
+	res.send(title)
+});
+
+	
+})
 router.post('/wordsperminute',function(req,res){
 	 var str=req.body.text;
 	var stats = readingTime(str);
