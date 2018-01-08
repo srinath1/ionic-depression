@@ -69,7 +69,8 @@ analysis.attitude_analysis({"data":[str]},function(err,data){
 
 	
 });
-router.post('/mood',function(req,res){
+
+router.post('/moodanalysis',function(req,res){
 	 var str=req.body.text;
 	 var analysis = new analytics("QoOoVVLxADwp","BVNoqNMReQ0X");// The read and write api key can be obtained by creating an uclassify account in the https://www.uclassify.com for free..
 //they provide 500 request for free daily..
