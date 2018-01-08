@@ -9,7 +9,7 @@ const pa = require('predictage');
 const pg = require('predictgender')
 var readingTime = require('reading-time');
 var WikiFakt = require('wikifakt');
-
+var analytics = require('uclassify');
 	
 var formidable = require('formidable');
 
@@ -35,6 +35,22 @@ router.post('/wordsperminute',function(req,res){
   console.log(stats)
 	res.send(stats);
 	
+	
+});
+router.post('/attitude',function(req,res){
+	 var str=req.body.text;
+	 var analysis = new analytics("QoOoVVLxADwp","BVNoqNMReQ0X");// The read and write api key can be obtained by creating an uclassify account in the https://www.uclassify.com for free..
+//they provide 500 request for free daily..
+ 
+//Ex: Here shown is a short news data that is being passed on and the response is as shown..
+analysis.attitude_analysis({"data":[str]},function(err,data){
+    if(err){console.log(err);
+    }
+    else{
+       res.send(data);
+    }
+});
+
 	
 });
 router.post('/gender', function(req, res) {    
