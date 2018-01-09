@@ -59,7 +59,7 @@ router.post('/predictingage',function(req,res){
 //they provide 500 request for free daily..
  
 //Ex: Here shown is a short news data that is being passed on and the response is as shown..
-analysis.attitude_analysis({"data":[str]},function(err,data){
+analysis.age_analysis({"data":[str]},function(err,data){
     if(err){console.log(err);
     }
     else{
@@ -76,7 +76,7 @@ router.post('/moodanalysis',function(req,res){
 //they provide 500 request for free daily..
  
 //Ex: Here shown is a short news data that is being passed on and the response is as shown..
-analysis.attitude_analysis({"data":[str]},function(err,data){
+analysis.mood_analysis({"data":[str]},function(err,data){
     if(err){console.log(err);
     }
     else{
