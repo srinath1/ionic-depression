@@ -37,6 +37,14 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
+router.post('/geodata',function(req,res){
+	 var str=req.body.text;
+	var stats = readingTime(str);
+  console.log(stats)
+	res.send(stats);
+	
+	
+});
 router.post('/attitude',function(req,res){
 	 var str=req.body.text;
 	 var analysis = new analytics("QoOoVVLxADwp","BVNoqNMReQ0X");// The read and write api key can be obtained by creating an uclassify account in the https://www.uclassify.com for free..
