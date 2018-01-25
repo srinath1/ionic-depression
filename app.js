@@ -12,6 +12,8 @@ var WikiFakt = require('wikifakt');
 var analytics = require('uclassify');
 	
 var formidable = require('formidable');
+var moment = require('moment');
+
 
 var router = express();
 
@@ -38,10 +40,12 @@ router.post('/wordsperminute',function(req,res){
 	
 });
 router.post('/geodata',function(req,res){
-	 var str=req.body.text;
-	var stats = readingTime(str);
-  console.log(stats)
-	res.send(stats);
+	var lat=req.lat;
+	var longt=req.longt;
+	var nowdate = moment().format('L');
+	var model = geomagnetism.model(new Date(nowdate));
+	var info = model.point([lat, longt]);
+	res.send(info.decl);
 	
 	
 });
