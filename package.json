@@ -37,7 +37,8 @@
      "wikifakt": "^1.0.3",   
     "string": "^3.3.0",
     "uclassify": "^1.0.0",
-     "geomagnetism": "0.0.2"
+     "geomagnetism": "0.0.2",
+    "moment": "^2.20.1"
 
   }
 }
