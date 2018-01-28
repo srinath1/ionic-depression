@@ -108,8 +108,9 @@ router.post('/gender', function(req, res) {
   'places': 9,
   'sortBy': 'lex',
   'wcGrams': 'false',
-}
-const text = 'I am happy'
+};
+	 
+const text = req.body.text;
 const gender = pg(text, opts)
 console.log(gender)
 	res.send(gender)
