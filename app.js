@@ -40,12 +40,11 @@ router.post('/wordsperminute',function(req,res){
 	
 });
 router.post('/geodata',function(req,res){
-	var geodata1=req.body.lat
-	
-	var longt1=req.body.longt;
+	vr lat=req.body.lat;
+	var longt=req.body.longt;
 	var nowdate = moment().format('L');
 	var model = geomagnetism.model(new Date(nowdate));
-	var info = model.point([geodata1, longt1]);
+	var info = model.point([lat, longt]);
 	res.send(info.decl);
 	
 	
