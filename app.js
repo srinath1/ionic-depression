@@ -39,16 +39,7 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
-router.post('/geodata',function(req,res){
-	vr lat=48.86;
-	var longt=2.35;
-	var nowdate = moment().format('L');
-	var model = geomagnetism.model(new Date(nowdate));
-	var info = model.point([lat, longt]);
-	res.send(info.decl);
-	
-	
-});
+
 router.post('/attitude',function(req,res){
 	 var str=req.body.text;
 	 var analysis = new analytics("QoOoVVLxADwp","BVNoqNMReQ0X");// The read and write api key can be obtained by creating an uclassify account in the https://www.uclassify.com for free..
