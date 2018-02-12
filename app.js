@@ -39,6 +39,14 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
+router.post('/readsperminute',function(req,res){
+	 var str=req.body.text;
+	var stats = readingTime(str);
+  console.log(stats)
+	res.send(stats);
+	
+	
+});
 
 router.post('/attitude',function(req,res){
 	 var str=req.body.text;
