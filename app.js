@@ -13,7 +13,9 @@ var analytics = require('uclassify');
 	
 var formidable = require('formidable');
 var moment = require('moment');
-
+var nlp = require('nlp_compromise');
+var nlpNgram = require('nlp-ngram');
+nlp.plugin(nlpNgram);
 
 var router = express();
 
@@ -44,6 +46,18 @@ router.post('/readsperminute',function(req,res){
 	var stats = readingTime(str);
   console.log(stats)
 	res.send(stats);
+	
+	
+});
+router.post('/statementanalysis',function(req,res){
+	 var str=req.body.text;
+	
+	nlp.plugin(nlpNgram);
+ 
+        var t = nlp.text(str);
+        t.ngram();
+  
+	res.send(t.ngram(););
 	
 	
 });
