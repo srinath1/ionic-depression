@@ -38,6 +38,7 @@
     "string": "^3.3.0",
     "uclassify": "^1.0.0",
      "geomagnetism": "0.0.2",
+    "nlp_compromise": ">=3.0.0",
     "moment": "^2.20.1"
 
   }
