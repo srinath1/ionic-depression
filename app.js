@@ -49,18 +49,7 @@ router.post('/readsperminute',function(req,res){
 	
 	
 });
-router.post('/statementanalysis',function(req,res){
-	 var str=req.body.text;
-	
-	nlp.plugin(nlpNgram);
- 
-        var t = nlp.text(str);
-        t.ngram();
-  
-	res.send(t.ngram(););
-	
-	
-});
+
 
 router.post('/attitude',function(req,res){
 	 var str=req.body.text;
