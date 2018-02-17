@@ -15,7 +15,7 @@ var formidable = require('formidable');
 var moment = require('moment');
 var nlp = require('nlp_compromise');
 var nlpNgram = require('nlp-ngram');
-nlp.plugin(nlpNgram);
+
 
 var router = express();
 
