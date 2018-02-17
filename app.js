@@ -13,8 +13,7 @@ var analytics = require('uclassify');
 	
 var formidable = require('formidable');
 var moment = require('moment');
-var nlp = require('nlp_compromise');
-var nlpNgram = require('nlp-ngram');
+
 
 
 var router = express();
