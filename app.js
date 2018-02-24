@@ -13,7 +13,7 @@ var analytics = require('uclassify');
 	
 var formidable = require('formidable');
 var moment = require('moment');
-var twitterScreenName = require('twitter-screen-name');
+
 
 
 
@@ -38,35 +38,6 @@ router.post('/wordsperminute',function(req,res){
 	var stats = readingTime(str);
   console.log(stats)
 	res.send(stats);
-	
-	
-});
-router.post('/twitteranalysis',function(req,res){
-	 var str=req.body.text;
-	 var sname=str
-const params = {
-  screenName: sname,
-  count: 100
-}
- 
-const opts = {
-  credentials: {
-    consumerKey: 'f7vT9Ov7yZP8evoZw4klew',
-    consumerSecret: 'x5TSwqQFGMH1XrB6rYHScdkGtAdgz23e2jFCjGn0',
-    accessToken: '121973559-JHz96ixpLML2Te5vL75JLk6d9sTCFsjLO8WkOz9x',
-    accessTokenSecret: 'XWeLsKXssdzU9VwSuWuQveJOijdzrbrh3tzmQkFP05XrI'
-  },
-  limit: 3200,
-  limitDays: 7
-}
-
-const stream = fetchTimeline(params, opts) // => Readable Stream
- 
-stream.on('data', (tweet, index) => {
-var text=`${tweet.text}`;
-console.log(text)
-})
-	
 	
 	
 });
