@@ -60,16 +60,20 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
-router.get('/twitanalysis',function(req,res){
-	 
+router.post('/twitanalysis',function(req,res){
+	 var str=req.body.text;
+var q2=''
+var q3=  'language:'
+var q4=" en"
+var q6=q3+q4
+var q5= str+"  "+q6;
+var x={
+	q:q5,
+	count:100
+} 
 	
-T.get('search/tweets', { q: 'banana since:2011-07-11', count: 100 }, function(err, data, response) {
-	var tweets=[];
-	data.forEach( function( tweet ) {
-          tweets.push( { 
-text: tweet.text
-	  })
-	})
+T.get('search/tweets',x, function(err, data, response) {
+	
   res.send(tweets)
 })
 
