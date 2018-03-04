@@ -39,6 +39,7 @@
     "uclassify": "^1.0.0",
      "geomagnetism": "0.0.2",
      "twit": "^2.2.9",
+     "twitter-node-client": "0.0.6",
    
     "moment": "^2.20.1"
   
