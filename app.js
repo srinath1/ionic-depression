@@ -68,8 +68,8 @@ var q4=" en"
 var q6=q3+q4
 var q5= str+"  "+q6;
 var x={
-	q:q5,
-	count:100
+	q:q5
+	
 } 
 	
 T.get('search/tweets',x, function(err, data, response) {
