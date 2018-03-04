@@ -23,24 +23,7 @@ var T = new Twit({
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
-const fetchTimeline = require('fetch-timeline')
 
-const params = {
-  screenName: 'RethinkDep',
-  count: 20
-}
-const opts = {
-  credentials: {
-   consumerKey:         'f7vT9Ov7yZP8evoZw4klew',
-  consumerSecret:      'x5TSwqQFGMH1XrB6rYHScdkGtAdgz23e2jFCjGn0',
-  accessToken:         '121973559-JHz96ixpLML2Te5vL75JLk6d9sTCFsjLO8WkOz9x',
-  accessTokenSecret:  'XWeLsKXssdzU9VwSuWuQveJOijdzrbrh3tzmQkFP05XrI'
- 
-},
-  limit: 3200,
-  limitDays: 7
-}
-const stream = fetchTimeline(params, opts) // => Readable Stream
 
 
 
@@ -77,22 +60,28 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
-router.post('/twitanalysis',function(req,res){
+router.get('/twitanalysis',function(req,res){
 	 var str=req.body.text;
 	
-var  q1 =str;
-var q2=''
-var q3=  'language:'
-var q4=" 'en'"
-
-var q5= q1+"  "+q3+q4;
-var x={
-	q:q5
-}
-
-T.get('search/tweets',  x, function(err, data, response) {
-  res.send(data);
-})
+T.get( 'statuses/user_timeline', { screen_name: RethinkDep, count: 25 }, function( error, data, response ) {
+      if ( error ) {
+        console.log('Error: ', error );
+       
+      } else {
+        var tweets = [];
+        data.forEach( function( tweet ) {
+          tweets.push( { 
+            text: tweet.text,
+            timeStamp: (new Date(tweet.created_at)),
+            userName: tweet.user.name,
+            userHandle: tweet.user.screen_name,
+            description: tweet.user.description,
+            profileImgUrl: tweet.user.profile_image_url_https.replace('_normal', '')
+          });
+        });
+       
+      }
+    });
 
 	
 	
