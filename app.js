@@ -50,7 +50,7 @@ router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 router.get('/newtweet',function(req,res){
 	 stream.on('data', (tweet, index) => {
-		 res.send(${tweet.text});
+		 res.send(data);
  
 })
 	
