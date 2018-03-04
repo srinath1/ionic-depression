@@ -52,7 +52,7 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
-router.get('/twitanalysis',function(req,res){
+router.post('/twitanalysis',function(req,res){
 	 var str=req.body.text;
 var q2=''
 var q3=  'language:'
