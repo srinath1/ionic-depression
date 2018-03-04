@@ -52,29 +52,7 @@ router.post('/wordsperminute',function(req,res){
 	
 	
 });
-router.post('/twitanalysis',function(req,res){
-	 var str=req.body.text;
-var q2=''
-var q3=  'language:'
-var q4=" en"
-var q6=q3+q4
-var q5= str+"  "+q6;
-var x={
-	track:q5
-	
-} 
-	
-var stream = T.stream('statuses/filter',x)
 
-stream.on('tweet', function (tweet) {
-  res.send(tweet)
-})
-
-	
-	
-	
-	
-});
 router.post('/readsperminute',function(req,res){
 	 var str=req.body.text;
 	var stats = readingTime(str);
