@@ -64,7 +64,13 @@ router.get('/twitanalysis',function(req,res){
 	 
 	
 T.get('search/tweets', { q: 'banana since:2011-07-11', count: 100 }, function(err, data, response) {
-  res.send(data)
+	var tweets=[];
+	data.forEach( function( tweet ) {
+          tweets.push( { 
+text: tweet.text
+	  })
+	})
+  res.send(tweets)
 })
 
 	
