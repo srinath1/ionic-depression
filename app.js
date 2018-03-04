@@ -74,7 +74,7 @@ var x={
 	
 T.get('search/tweets',x, function(err, data, response) {
 	
-  res.send(tweets)
+  res.send(data)
 })
 
 	
