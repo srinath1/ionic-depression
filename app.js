@@ -67,7 +67,7 @@ var x={
 var stream = T.stream('statuses/filter',x)
 
 stream.on('tweet', function (tweet) {
-  res.json(tweet)
+  res.send(tweet)
 })
 
 	
