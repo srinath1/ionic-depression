@@ -23,6 +23,24 @@ var T = new Twit({
   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
+const fetchTimeline = require('fetch-timeline')
+
+const params = {
+  screenName: 'RethinkDep',
+  count: 20
+}
+const opts = {
+  credentials: {
+   consumerKey:         'f7vT9Ov7yZP8evoZw4klew',
+  consumerSecret:      'x5TSwqQFGMH1XrB6rYHScdkGtAdgz23e2jFCjGn0',
+  accessToken:         '121973559-JHz96ixpLML2Te5vL75JLk6d9sTCFsjLO8WkOz9x',
+  accessTokenSecret:  'XWeLsKXssdzU9VwSuWuQveJOijdzrbrh3tzmQkFP05XrI'
+ 
+},
+  limit: 3200,
+  limitDays: 7
+}
+const stream = fetchTimeline(params, opts) // => Readable Stream
 
 
 
@@ -30,6 +48,15 @@ var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
+router.get('/newtweet',function(req,res){
+	 stream.on('data', (tweet, index) => {
+		 res.send(${tweet.text});
+ 
+})
+	
+	
+	
+});
 router.get('/randomfacts',function(req,res){
 	
 	// Get a fact 
