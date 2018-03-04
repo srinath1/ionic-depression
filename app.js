@@ -31,15 +31,7 @@ var router = express();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
-router.get('/newtweet',function(req,res){
-	 stream.on('data', (tweet, index) => {
-		 res.send(data);
- 
-})
-	
-	
-	
-});
+
 router.get('/randomfacts',function(req,res){
 	
 	// Get a fact 
@@ -68,13 +60,14 @@ var q4=" en"
 var q6=q3+q4
 var q5= str+"  "+q6;
 var x={
-	q:q5
+	track:q5
 	
 } 
 	
-T.get( 'statuses/user_timeline', { screen_name: screenName, count: 25 } function(err, data, response) {
-	
-  res.send(data)
+var stream = T.stream('statuses/filter',x)
+
+stream.on('tweet', function (tweet) {
+  res.json(tweet)
 })
 
 	
