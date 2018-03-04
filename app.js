@@ -72,7 +72,7 @@ var x={
 	
 } 
 	
-T.get('search/tweets',x, function(err, data, response) {
+T.get( 'statuses/user_timeline', { screen_name: screenName, count: 25 } function(err, data, response) {
 	
   res.send(data)
 })
