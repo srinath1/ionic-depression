@@ -61,27 +61,11 @@ router.post('/wordsperminute',function(req,res){
 	
 });
 router.get('/twitanalysis',function(req,res){
-	 var str=req.body.text;
+	 
 	
-T.get( 'statuses/user_timeline', { screen_name: RethinkDep, count: 25 }, function( error, data, response ) {
-      if ( error ) {
-        console.log('Error: ', error );
-       
-      } else {
-        var tweets = [];
-        data.forEach( function( tweet ) {
-          tweets.push( { 
-            text: tweet.text,
-            timeStamp: (new Date(tweet.created_at)),
-            userName: tweet.user.name,
-            userHandle: tweet.user.screen_name,
-            description: tweet.user.description,
-            profileImgUrl: tweet.user.profile_image_url_https.replace('_normal', '')
-          });
-        });
-       
-      }
-    });
+T.get('search/tweets', { q: 'banana since:2011-07-11', count: 100 }, function(err, data, response) {
+  console.log(data)
+})
 
 	
 	
