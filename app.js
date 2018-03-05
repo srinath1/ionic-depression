@@ -78,8 +78,9 @@ router.get('/mytweets',function(req,res){
 	
  
 	var q2=' depression since:'
-var q3=q2+a4;
-console.log(q3)
+
+
+	var q3=q2+a4;
 var q4={
 	q:q3,
 	count:25
