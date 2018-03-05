@@ -14,7 +14,7 @@ var analytics = require('uclassify');
 var formidable = require('formidable');
 var moment = require('moment');
 var Twit = require('twit');
-const axios = require('axios');
+
 
 var T = new Twit({
   consumer_key:         'f7vT9Ov7yZP8evoZw4klew',
@@ -149,14 +149,7 @@ console.log(gender)
 	
 	})
 
-router.get('/videos',function(req,res){
-	axios.get('https://jsonblob.com/api/jsonBlob/ccf501a3-20b8-11e8-893a-a5630f4c2710')
-  .then(response => {
-    res.send(response)
-  })
-  .catch(error => {
-    console.log(error);
-  });
+
 	
 
 	
