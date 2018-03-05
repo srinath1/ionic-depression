@@ -14,6 +14,7 @@ var analytics = require('uclassify');
 var formidable = require('formidable');
 var moment = require('moment');
 var Twit = require('twit');
+const axios = require('axios');
 
 var T = new Twit({
   consumer_key:         'f7vT9Ov7yZP8evoZw4klew',
@@ -28,13 +29,7 @@ var T = new Twit({
 
 
 var router = express();
-var xy=moment().subtract(10, 'days').calendar(); // 02/23/2018
-var xz=xy.split('/');
- 
- var a1=xz[2];
- var a2=xz[0];
- var a3=xz[1];
- var a4=a1+"-"+a2+"-"+a3;
+
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
@@ -77,16 +72,9 @@ stream.on('tweet', function (tweet) {
 router.get('/mytweets',function(req,res){
 	
  
-	var q2=' depression since:'
-
-
-	var q3=q2+a4;
-var q4={
-	q:q3,
-	count:25
-}
-T.get('search/tweets', q4, function(err, data, response) {
-  console.log(data);
+	
+T.get('search/tweets', { q: 'depression since:2018-03-05', count: 25 }, function(err, data, response) {
+  res.send(data)
 })
 
 
@@ -162,123 +150,15 @@ console.log(gender)
 	})
 
 router.get('/videos',function(req,res){
+	axios.get('https://jsoneditoronline.org/?id=240d8af49a0cefe1aa85a2b9876dbfc0')
+  .then(response => {
+    res.send(response)
+  })
+  .catch(error => {
+    console.log(error);
+  });
 	
-	res.send([{
-    "id": "1",
-    "title": "The happy secret to the  better work",
-    "description": "We believe we should work hard in order to be happy, but could we be thinking about things backwards? In this fast-moving and very funny talk, psychologist Shawn Achor argues that, actually, happiness inspires us to be more productive.",
-    "meta": {
-        "releaseYear": "2014",
-        "author": [{
-            "name": "Dan Gilbert"
-        }],
-        "actors": []
-    },
-    "images": {
-        "cover": "https://i.ytimg.com/vi/FRUcgZW1G2U/maxresdefault.jpg",
-        "placeholder": "https://i.ytimg.com/vi/FRUcgZW1G2U/maxresdefault.jpg"
-    },
-    "streams": [{
-        "type": "mp4",
-        "url": "https://drive.google.com/open?id=1TIppwuEMgghYmLNSm3y47ue1o8NxhnYz"
-    }]
-}, {
-    "id": "2",
-    "title": "The new era to beat the depression",
-    "description": "Martin Seligman talks about psychology — as a field of study and as it works one-on-one with each patient and each practitioner. As it moves beyond a focus on disease, what can modern psychology help us to become? .",
-    "meta": {
-        "releaseYear": "2014",
-        "directors": [{
-            "name": "Shaun"
-        }],
-        "actors": [{
-            "name": "Shaun"
-        }, {
-            "name": "Shaun"
-        }]
-    },
-    "images": {
-        "cover": "https://jbwye.files.wordpress.com/2013/12/elephant.jpg",
-        "placeholder": "https://jbwye.files.wordpress.com/2013/12/elephant.jpg"
-    },
-    "streams":"https://drive.google.com/open?id=1lEB87zMtUMLLWS0PNenSQ0IRpDh8PWqB"
-    
-    }, {
-    "id": "3",
-    "title": "Elephant's Dream",
-    "description": "Elephants Dream is the story of two strange characters exploring a capricious and seemingly infinite machine. The elder, Proog, acts as a tour-guide and protector, happily showing off the sights and dangers of the machine to his initially curious but increasingly skeptical protege Emo. As their journey unfolds we discover signs that the machine is not all Proog thinks it is, and his guiding takes on a more desperate aspect.",
-    "meta": {
-        "releaseYear": "2006",
-        "directors": [{
-            "name": "Bassam Kurdali"
-        }],
-        "actors": [{
-            "name": "Cas Jansen"
-        }, {
-            "name": "Tygo Gernandt"
-        }]
-    },
-    "images": {
-        "cover": "http://www.boating-paris-marindeaudouce.com/wp-content/uploads/a-rich-and-diverse-nature-can-be-discovered-on-the-marne-river-banks-from-silent-electric-boats-1030x679.jpg",
-        "placeholder": "http://www.boating-paris-marindeaudouce.com/wp-content/uploads/a-rich-and-diverse-nature-can-be-discovered-on-the-marne-river-banks-from-silent-electric-boats-1030x679.jpg"
-    },
-    "streams": "https://drive.google.com/open?id=1mlBA400Y5mJbS6M3izzbFk7cNVOmGQFV"
-    
-}, {
-    "id": "4",
-    "title": "The power of passion and perservence",
-    "description": "Leaving a high-flying job in consulting, Angela Lee Duckworth took a job teaching math to seventh graders in a New York public school. She quickly realized that IQ wasn't the only thing separating the successful students from those who struggled. Here, she explains her theory of grit as a predictor of success.",
-    "meta": {
-        "releaseYear": "2017",
-        "directors": [{
-            "name": "Dr.Jeff"
-        }],
-        "actors": [{
-            "name": "Dr.Jeff"
-        }]
-    },
-    "images": {
-        "cover": "https://www.photocase.com/photos/5887-water-river-baden-wuerttemberg-danube-upper-danube-valley-photocase-stock-photo-large.jpeg",
-        "placeholder": "https://www.photocase.com/photos/5887-water-river-baden-wuerttemberg-danube-upper-danube-valley-photocase-stock-photo-large.jpeg"
-    },
-    "streams":"https://drive.google.com/open?id=1jOkLTxfneKxea4uPqaDI8BIs2o_M2meq"
-  
-},
-{
-    "id": "5",
-    "title": "What makes us feel good about work",
-    "description": "What motivates us to work? Contrary to conventional wisdom, it isn't just money. But it's not exactly joy either. It seems that most of us thrive by making constant progress and feeling a sense of purpose. Behavioral economist Dan Ariely presents two eye-opening experiments that reveal our unexpected and nuanced attitudes toward meaning in our work.",
-    "meta": {
-        "releaseYear": "2008",
-        "directors": [{
-            "name": "Dan"
-        }],
-        "actors": []
-    },
-    "images": {
-        "cover": "https://www.photocase.com/photos/38423-fog-river-slope-cliff-photocase-stock-photo-large.jpeg",
-        "placeholder": "https://www.photocase.com/photos/38423-fog-river-slope-cliff-photocase-stock-photo-large.jpeg"
-    },
-    "streams": "https://drive.google.com/open?id=1p5OzFqI_ZJyjQQbZPXN209XKWYAICoHS"
-   
-},{
-    "id": "6",
-    "title": "The 3 A's awsome",
-    "description": "Neil Pasricha's blog 1000 Awesome Things savors life's simple pleasures, from free refills to clean sheets. In this heartfelt talk, he reveals the 3 secrets (all starting with A) to leading a life that's truly awesome.",
-    "meta": {
-        "releaseYear": "2016",
-        "directors": [{
-            "name": "Niel"
-        }],
-        "actors": []
-    },
-    "images": {
-        "cover": "https://static1.squarespace.com/static/51959b80e4b0acc777d86621/52086014e4b01247d70ab798/54dad479e4b0f27615457a22/1423627395952/P0982+-+Battleship+Lake+-+Full+Size+No+Watermark.jpg?format=500w",
-        "placeholder": "https://static1.squarespace.com/static/51959b80e4b0acc777d86621/52086014e4b01247d70ab798/54dad479e4b0f27615457a22/1423627395952/P0982+-+Battleship+Lake+-+Full+Size+No+Watermark.jpg?format=500w"
-    },
-    "streams": "http://media.clarify.io/video/presentations/SimonSinek-TEDxPugetSound-How-Great-Leaders-Inspire-Action.mp4"
-}]
-)
+
 	
 	
 })
