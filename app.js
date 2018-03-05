@@ -67,6 +67,13 @@ var stream = T.stream('statuses/filter', { track: 'depression' })
 stream.on('tweet', function (tweet) {
   res.send(tweet)
 })
+});
+router.get('/mytweets',function(req,res){
+T.get('search/tweets', { q: 'depression since:2018-01-01', count: 100 }, function(err, data, response) {
+  res.send(data);
+})
+
+
 })
 
 
