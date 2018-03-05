@@ -15,7 +15,7 @@ var formidable = require('formidable');
 var moment = require('moment');
 var Twit = require('twit');
 
-var T = new Twit({
+var Twit = new Twit({
   consumer_key:         'f7vT9Ov7yZP8evoZw4klew',
   consumer_secret:      'x5TSwqQFGMH1XrB6rYHScdkGtAdgz23e2jFCjGn0',
   access_token:         '121973559-JHz96ixpLML2Te5vL75JLk6d9sTCFsjLO8WkOz9x',
@@ -69,8 +69,23 @@ stream.on('tweet', function (tweet) {
 })
 });
 router.get('/mytweets',function(req,res){
-T.get('search/tweets', { q: 'depression since:2018-01-01', count: 100 }, function(err, data, response) {
-  res.send(data);
+	var xy=moment().subtract(10, 'days').calendar(); // 02/23/2018
+var xz=xy.split('/');
+ 
+ var a1=xz[2];
+ var a2=xz[0];
+ var a3=xz[1];
+ var a4=a1+"-"+a2+"-"+a3;
+ 
+	var q2=' depression since:'
+var q3=q2+a4;
+console.log(q3)
+var q4={
+	q:q3,
+	count:25
+}
+Twit.get('search/tweets', q4, function(err, data, response) {
+  console.log(data);
 })
 
 
