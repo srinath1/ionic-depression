@@ -15,7 +15,7 @@ var formidable = require('formidable');
 var moment = require('moment');
 var Twit = require('twit');
 
-var Twit = new Twit({
+var T = new Twit({
   consumer_key:         'f7vT9Ov7yZP8evoZw4klew',
   consumer_secret:      'x5TSwqQFGMH1XrB6rYHScdkGtAdgz23e2jFCjGn0',
   access_token:         '121973559-JHz96ixpLML2Te5vL75JLk6d9sTCFsjLO8WkOz9x',
@@ -84,7 +84,7 @@ var q4={
 	q:q3,
 	count:25
 }
-Twit.get('search/tweets', q4, function(err, data, response) {
+T.get('search/tweets', q4, function(err, data, response) {
   console.log(data);
 })
 
