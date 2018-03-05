@@ -154,7 +154,7 @@ console.log(gender)
 
 	
 	
-})
+
 router.post('/age', function(req, res) {    
 	 var str=req.body.text;
 	const opts1 = {
