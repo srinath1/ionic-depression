@@ -61,6 +61,13 @@ router.post('/readsperminute',function(req,res){
 	
 	
 });
+router.get('/tweets',function(req,res){
+var stream = T.stream('statuses/filter', { track: 'depression' })
+
+stream.on('tweet', function (tweet) {
+  res.send(tweet)
+})
+})
 
 
 router.post('/attitude',function(req,res){
