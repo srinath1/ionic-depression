@@ -28,7 +28,13 @@ var Twit = new Twit({
 
 
 var router = express();
-
+var xy=moment().subtract(10, 'days').calendar(); // 02/23/2018
+var xz=xy.split('/');
+ 
+ var a1=xz[2];
+ var a2=xz[0];
+ var a3=xz[1];
+ var a4=a1+"-"+a2+"-"+a3;
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
 
@@ -69,13 +75,7 @@ stream.on('tweet', function (tweet) {
 })
 });
 router.get('/mytweets',function(req,res){
-	var xy=moment().subtract(10, 'days').calendar(); // 02/23/2018
-var xz=xy.split('/');
- 
- var a1=xz[2];
- var a2=xz[0];
- var a3=xz[1];
- var a4=a1+"-"+a2+"-"+a3;
+	
  
 	var q2=' depression since:'
 var q3=q2+a4;
