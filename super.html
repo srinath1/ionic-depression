@@ -1,0 +1,27 @@
+<ion-view view-title="Cognition Quiz super">
+	
+  <ion-content  style="background-image: url('https://i.pinimg.com/236x/6c/2c/20/6c2c209d4698e4498910f26a40dc88f1--whole-wheat-sherwin-williams-colored-cabinets.jpg');">
+  <div >
+  <div  ng-controller='superCtrl as qCtrl'>
+   <div ng-repeat='question in qCtrl.questions'>
+    <p>{{ question.title }}</p>
+    <div ng-repeat='answer in question.answers'>
+      <input type='radio' name='{{question.title}}' ng-model='qCtrl.selectedAnswers[question.title]' ng-value='answer'>{{ answer.title }}
+	  
+    </div>
+	<hr>
+  </div>
+  
+  <br>
+  <button class="button button-block button-positive" ng-click='qCtrl.validate()'>
+  Validate answers
+</button>
+ 
+
+  <p ng-if='qCtrl.totalQuestions'>
+    {{ qCtrl.correctAnswers }}/{{ qCtrl.totalQuestions }} were correct
+  </p>
+</div>
+ </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,144 @@
+<ion-view view-title="Calorie Calculator"> 
+ <ion-content  padding="true"ng-controller="bmimainController">
+
+
+<div id="title">
+<center>
+  <h3 style="color:green;"> Calorie Calculator</h3>
+  </center>
+  <p>Using the <a href="https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation" target="_blank">Harris–Benedict equation</a> as revised by Mifflin and St Jeor in 1990</p>
+</div>
+
+<div id="maincontainer" > 
+  
+  <div id="calulatorContainer">
+    
+      <!--closing div for results-->
+    </div>
+    <!--closing div for results section-->
+      <div class="form-group">
+      <div class="form">
+        <input type="number" class="form-control" placeholder="Weight in Kgs" ng-model="weight">
+      </div>
+      <div class="form">
+        <input type="number" class="form-control" placeholder="Age" ng-model="age">
+      </div>
+      <div class="form">
+        <input type="number" class="form-control" placeholder="Height in cm" ng-model="height">
+      </div>
+      <div id="activity">
+        <!--the as in ng-options selects the current value in the dropdown and allows it to be stored in ng-model-->
+        <select class="form-control" ng-options="x as x.name for x in activities" ng-model="selectedActivity">
+          <option value="">Select activity level...</option>
+        </select>
+      </div>
+      <!--closing div for activity dropdown-->
+      <div id="goal">
+        <select class="form-control" ng-options="x as x.name for x in goals" ng-model="selectedGoal">
+          <option value="">Select your goal...</option>
+        </select>
+      </div>
+      <!--closing div for goal-->
+      <div id="gender">
+        <label class="radio-inline"><input type="radio" name="optradio" ng-model="gender" value="male">Male</label>
+        <label class="radio-inline"><input type="radio" name="optradio" ng-model="gender" value="female">Female</label>
+      </div>
+      <!--closing div for radio gender-->
+    </div>
+  </div>
+  <!--closing div for calculator container-->
+  <div id="resultsSection">
+     
+		
+		<!-- <h1>Table Style Examples</h1> -->
+<table id="table--timedist">
+  <tr>
+    <th>Results (in kJ)</th>
+   
+  </tr>
+  <tr>
+    <td>Required daily cals = {{cals () | number:0 }}</td>
+   
+  </tr>
+  <tr>
+    <td>Daily Protein cals = {{proteinCals () | number:0}}</td>
+   
+  </tr>
+  <tr>
+    <td>Daily Carbs cals = {{carbsCals ()| number:0}}</td>
+   
+  </tr>
+  <tr>
+    <td>Daily Fat cals = {{fatCals ()| number:0}}</td>
+    
+  </tr>
+</table>
+
+      </div>
+ <hr>
+ <center>
+    <div style="color:purple">
+	<h3>Breakfast:BRK</h3>
+	<h3>Lunch:LNC</h3>
+	<h3>Snack:SNK</h3>
+	<h3>Dinner:DNR</h3>
+	<h3>Protien:PRTN</h3>
+	<h3>Carbohydrates:CRB</h3>
+	<h3>Fat:FAT</h3>
+	</div>
+	</center>
+	
+  <!--closing div for meal container-->
+  
+  <table ng-table="vm.tableParams" class="table" >
+  <table id="table--timedist">
+  <tr>
+    <th>PRTN(cal)</th>
+    <th>CRB(cal)</th>
+	<th>FAT(cal)</th>
+  </tr>
+  <tr>
+    <td>BRK:{{breakfast[0].value() |number:0}}</td>
+    <td>BRK:{{breakfast[1].value()|number:0}}</td>
+	<td>BRK: {{breakfast[2].value()|number:0}}</td>
+  </tr>
+  <tr>
+    <td>SNK:{{snack[0].value()|number:0}}</td>
+    <td>SNK:{{snack[1].value()|number:0}}</td>
+	<td>SNK:{{snack[2].value()|number:0}}</td>
+  </tr>
+  <tr>
+    <td>LNC:{{mainMeal[0].value()|number:0}}</td>
+    <td>LNC:{{mainMeal[1].value()|number:0}}</td>
+	<td>LNC:{{mainMeal[2].value()|number:0}}</td>
+  </tr>
+  <tr>
+    <td>SNK:{{snack[0].value()|number:0}}</td>
+    <td>SNK:{{snack[1].value()|number:0}}</td>
+	<td>SNK:{{snack[2].value()|number:0}}</td>
+  </tr>
+  <tr>
+    <td>SNK:{{snack[0].value()|number:0}}</td>
+    <td>SNK:{{snack[1].value()|number:0}}</td>
+	<td>SNK:{{snack[2].value()|number:0}}</td>
+  </tr>
+  <tr>
+    <td>DNR:{{mainMeal[0].value()|number:0}}</td>
+    <td>DNR:{{mainMeal[1].value()|number:0}}</td>
+	<td>DNR:{{mainMeal[2].value()|number:0}}</td>
+  </tr>
+</table>
+
+    
+  
+  
+  
+   
+	
+        
+</table>
+
+   </ion-content>
+ </ion-view>  
+    
+ 

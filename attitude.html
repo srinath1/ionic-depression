@@ -1,0 +1,53 @@
+<ion-view view-title="Attitude Analysis">
+
+<ion-content padding="true" >
+
+<br>
+<center>
+<h3 style="color:blue">This  feature uses Scientific Method to analyze your attitude.</h3>
+</center>
+<br>
+<div ng-controller="attitudeCtrl">
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <textarea type="text" name="message" ng-model="user.text" required="required" class="form-control" placeholder="enter at least 30 words about your feelings now" rows="3"></textarea>
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  </div>
+  
+ 
+   
+  <div>
+  <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-pizza"></i></div>
+		<h4>Extraversion:{{data_new2}}</h4></div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-magnet"></i></div>
+		<h4>Introversion:{{data_new1}}</h4></div>
+      </div>
+     
+        
+      </div>
+ 
+  <h3 style="color:green">Result:{{result}}</h3>
+  </div>
+  </div>
+  <hr>
+ 
+   
+  
+  </ion-content >
+</ion-view  >

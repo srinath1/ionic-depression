@@ -1,0 +1,32 @@
+<ion-view view-title="Gesture Analysis">
+
+<ion-content ng-controller="gestureCtrl"  padding="true"
+
+
+                   id="content"
+                   on-swipe-up="onGesture('Swipe Up')"
+                   on-swipe-right="onGesture('Swipe Right')"
+                   on-swipe-down="onGesture('Swipe Down')"
+                   on-swipe-left="onGesture('Swipe Left')"
+                   on-hold="onGesture('Hold')"
+                   on-double-tap="onGesture('Double-Tap')">
+				   
+			  
+				   
+<h2 style="text-align: center; color:orange">Long Term Study to observe the direction of gesture movement by the Depression holder</h2> 
+
+          <h2 style="text-align: center;color:green">Use any touch gesture on this page</h2> 
+		  <br>
+          <h3 style="text-align: center;color:Red">Used touch gesture: {{gesture.used}}</h3>  
+		  <div class="gest"></div>
+		  
+			
+	 
+	 
+   
+			  <a  href="#/app/gestchart" ng-click="update()" class="button button-full button-positive">Go To Chart</a>
+			  
+		
+   
+      </ion-content>
+</ion-view  >

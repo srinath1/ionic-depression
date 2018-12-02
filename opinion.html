@@ -1,0 +1,61 @@
+<ion-view title="Write Your Story" >
+
+    <ion-content padding="true" style="background-color: powderblue">
+<div >
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="page-header col-sm-12">
+        <h2>Share Your Story</h2>
+      </div>
+      <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+      <!--first-name-->
+        <div ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }" class="form-group col-sm-6">
+          <label>First Name</label>
+          <input type="text" name="firstname" ng-model="user.firstname" required="required" class="form-control" placeholder="First Name"/>
+          <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">Your First Name Is required</p>
+        </div>
+      <!--last-name-->
+        <div ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }" class="form-group col-sm-6">
+          <label>Last Name</label>
+          <input type="text" name="lastname" ng-model="user.lastname" required="required" class="form-control" placeholder="Last Name"/>
+          <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">Your Last Name Is required</p>
+        </div>
+		 <!--Country-->
+        <div ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }" class="form-group col-sm-6">
+          <label>Country</label>
+          <input type="text" name="lastname" ng-model="user.country" required="required" class="form-control" placeholder="Country name"/>
+          <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">Your Country Name Is Required</p>
+        </div>
+		 <!--Country-->
+        <div ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }" class="form-group col-sm-6">
+          <label>Title Of Your Story</label>
+          <input type="text" name="lastname" ng-model="user.title" required="required" class="form-control" placeholder="Title of the story"/>
+          <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">Your Title Is Required</p>
+        </div>
+        
+      <!--message-->
+	  
+        <div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-6">
+          <label>Your Story In Short</label>
+          <textarea type="text" name="message" ng-model="user.message" required="required" class="form-control" rows="3"></textarea>
+        </div>
+      <!--Radio-->
+        <div class="form-group col-sm-12">
+          <label>Gender</label><br />
+          <label class="radio-inline"><input type="radio" name="newsletter" ng-model="user.gender" id="Male" value="Male" checked>Male</label>
+          <label class="radio-inline"><input type="radio" name="newsletter" ng-model="user.gender" id="Female" value="Female">Female</label>          
+        </div>
+        <!--submit-->
+        <div class="col-sm-12">
+		 
+          <button type="submit" ng-disabled="userForm.$invalid" class="button button-full button button-balanced">Submit</button>
+		             <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+					 <div>
+	  <a  href="#/app/sharetheopinion" class="button button-full button-royal">Go To Blog</a>
+	   </div>
+		  
+        </div>
+		
+      </form>
+	  
+</ion-content>
+</ion-view>

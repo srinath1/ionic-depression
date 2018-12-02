@@ -1,0 +1,15 @@
+<ion-view view-title="Cognition Quiz Baisc">
+	
+  <ion-content  >
+  <br>
+  <br>
+  <button type="button" data-ng-disabled="status" data-ng-click="getAuth()">Get Auth</button>
+    <button type="button" data-ng-disabled="!status" data-ng-click="disconnect()">Disconnect</button>
+    <button type="button" data-ng-disabled="!status" data-ng-click="logout()">Logout</button>
+    <div data-ng-show="status">
+      <pre data-ng-bind="token"></pre>
+      <pre data-ng-bind="me | json"></pre>
+    </div>
+<button type="button" data-ng-click="share()">Compartilhar</button>
+  </ion-content>
+</ion-view>

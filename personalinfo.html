@@ -1,0 +1,218 @@
+<ion-view view-title="Personal Information">
+  <ion-content padding="true">
+
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+  <center>
+    <h2 style="color:green;">Personal  Data</h2>
+	<hr>
+	
+</center>
+
+	
+
+    <form>
+    
+        
+        
+        <!-- RADIO BUTTONS -->
+        <label>How many hours did you sleep yesterday?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="sleep4hrs" value="4" ng-model="formData.Sleeping">
+                    Less than 4 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="sleep4to6hours" value="5" ng-model="formData.Sleeping">
+                    Between 4-6 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="sleepmorethan6hours" value="6" ng-model="formData.Sleeping">
+                    Between 6-8 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="sleepmorethan7hours" value="8" ng-model="formData.Sleeping">
+                    More than 8 hours
+                </label>
+            </div>
+			 </div>
+			<label>Have you been affected by any abuse(physical,emotional,sexual)?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="abuseyes" value="-1" ng-model="formData.Abuse">
+                    Yes
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="abuseno" value="1" ng-model="formData.Abuse">
+                    No
+                </label>
+            </div>
+			
+            </div>
+			<label>Have you been taken any medication like isotretinoin or corticosteroids/Interferon?</label>
+			 <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="medicineyes" value="-1" ng-model="formData.Medicine">
+                    Yes
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="medicineno" value="1" ng-model="formData.Medicine">
+                    No
+                </label>
+            </div>
+			
+            </div>
+			<label>Are you suffering from any major illness?</label>
+			 <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="illyes" value="-1" ng-model="formData.Illness">
+                    Yes
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="illno" value="1" ng-model="formData.Illness">
+                    No
+                </label>
+            </div>
+			
+            </div>
+			<label>Is any of your family member having depression related problems?</label>
+			 <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="familyyes" value="-1" ng-model="formData.FamilyHistory">
+                    Yes
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="familyno" value="1" ng-model="formData.FamilyHistory">
+                    No
+                </label>
+            </div>
+			</div>
+			<label>How many hours of television did you watched.?</label>
+			 <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="TVlessthan1hr" value="1 " ng-model="formData.TelevisionViewing">
+                     1 hour
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="TVbetween1-2hours" value="2 " ng-model="formData.TelevisionViewing">
+                    2 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="TVmorethan2hours" value="3" ng-model="formData.TelevisionViewing">
+                    3 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="TVmorethan4hours" value="4" ng-model="formData.TelevisionViewing">
+                     4 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="TVmorethan5hours" value="5" ng-model="formData.TelevisionViewing">
+                     5 hours
+                </label>
+            </div>
+			
+            </div>
+			 <div>
+        <!-- RADIO BUTTONS -->
+        <label> How many ciggarettes you smoke per day? <input type="number" name="ciggarettes" value="" placeholder="enter number" ng-model="formData.Smoking">
+       
+                
+                   
+                 </label>
+            
+			</div>
+			<label>Did you had any serious financial,job or any serious loss?</label>
+			 <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="seriousyes" value="-1" ng-model="formData.Serious">
+                    Yes
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="serious" value="1" ng-model="formData.Serious">
+                    No
+                </label>
+            </div>
+			
+            </div>
+			<label>How many hours you spent on social network websites like facebook,twitter etc.?</label>
+			 <div class="radio">
+                <label>
+                    <input type="radio" name="social1hr" value=" 1 " ng-model="formData.SocialNetwork">
+                     1 hour
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="social1-2hrs" value="2" ng-model="formData.SocialNetwork">
+                    2 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="socialmore3hours" value=" 3" ng-model="formData.SocialNetwork">
+                     3 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="socialmore4hours" value=" 4" ng-model="formData.SocialNetwork">
+                     4 hours
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="socialmore5hours" value=" 5" ng-model="formData.SocialNetwork">
+                     5 hours
+                </label>
+            </div>
+			
+            </div>
+            
+        
+		
+          
+       
+			 
+        <button type="submit" class="button button-block button-assertive" ng-click="addMessage()">Submit</button>
+		<br>
+		 <a  href="#/app/personalchart" class="button button-full button-positive"  >Go To  Chart</a>
+		
+        
+    </form>
+    
+    
+    
+       
+   
+</ion-content>
+</ion-view>

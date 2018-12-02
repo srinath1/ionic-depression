@@ -1,0 +1,21 @@
+<ion-view view-title = "Video Player">
+  <ion-content class = "scroll-content">
+    <ion-list class="list-inset">
+      <ion-item class="item-text-wrap"
+        ng-repeat="movie in movies | filter: { id:movieId }">
+         <video id = "video" width="300" controls poster="{{movie.images.placeholder}}">
+             <source ng-src="{{trustSrc(movie.streams)|}}"></source>
+          </video>
+             <h2>{{movie.title}} <span ng-show = "movie.meta.releaseYear">({{movie.meta.releaseYear}})</span></h2>
+               <div class = "director-writer" ng-repeat = "directors in movie.meta.directors">
+                  <h4> Director:{{directors.name}}</h4>
+                  <h4> Writers:{{directors.name}}</h4>
+               </div>
+           <div class = "desp">
+             <h3>Description</h3>
+             <p>{{movie.description}}</p>
+           </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

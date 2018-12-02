@@ -1,0 +1,75 @@
+<ion-view view-title="Cognitive Reading Analysis">
+
+<ion-content padding="true"  >
+ 
+
+<div style="background-image: url('https://image.freepik.com/free-vector/realistic-water-background_1406-10.jpg');">
+
+
+<br>
+<center>
+<h3 style="color:blue">This  feature uses Scientific Method to analyze the Cognitive  Reading Behaviour Thinking</h3>
+
+<br>
+<p style="color:red";> Just start reading the sentences  or copy paste any read sentences & after completion of 60 secs paste the read lines in the below (2nd text area) & submit</p>
+</center>
+ <textarea type="text" name="message"  required="required" class="form-control" rows="10">Cognition is "the mental action or process of acquiring knowledge and understanding through thought, experience, and the senses". It encompasses processes such as knowledge, attention, memory and working memory, judgment and evaluation, reasoning and "computation", problem solving and decision making, comprehension and production of language. Human cognition is conscious and unconscious, concrete or abstract, as well as intuitive (like knowledge of a language) and conceptual (like a model of a language). Cognitive processes use existing knowledge and generate new knowledge.
+
+The processes are analyzed from different perspectives within different contexts, notably in the fields of linguistics, anesthesia, neuroscience, psychiatry, psychology, education, philosophy, anthropology, biology, systemics, logic, and computer science.[page needed] These and other different approaches to the analysis of cognition are synthesised in the developing field of cognitive science, a progressively autonomous academic discipline. Within psychology and philosophy, the concept of cognition is closely related to abstract concepts such as mind and intelligence. It encompasses the mental functions, mental processes (thoughts), and states of intelligent entities (humans, collaborative groups, human organizations, highly autonomous machines, and artificial intelligences).
+
+Thus, the term's usage varies across disciplines; for example, in psychology and cognitive science, "cognition" usually refers to an information processing view of an individual's psychological functions. It is also used in a branch of social psychology called social cognition to explain attitudes, attribution, and group dynamics. In cognitive psychology and cognitive engineering, cognition is typically assumed to be information processing in a participant’s or operator’s mind or brain.Cognition is a word that dates back to the 15th century, when it meant "thinking and awareness". Attention to the cognitive process came about more than eighteen centuries ago, beginning with Aristotle and his interest in the inner workings of the mind and how they affect the human experience. Aristotle focused on cognitive areas pertaining to memory, perception, and mental imagery. The Greek philosopher found great importance in ensuring that his studies were based on empirical evidence; scientific information that is gathered through observation and conscientious experimentation.[8] Centuries later, as psychology became a burgeoning field of study in Europe and then gained a following in America, other scientists like Wilhelm Wundt, Herman Ebbinghaus, Mary Whiton Calkins, and William James would offer their contributions to the study of cognition.
+
+Wilhelm Wundt emphasized the notion of what he called introspection: examining the inner feelings of an individual. With introspection, the subject had to be careful to describe his or her feelings in the most objective manner possible in order for Wundt to find the information scientific. Though Wundt's contributions are by no means minimal, modern psychologists find his methods to be quite subjective and choose to rely on more objective procedures of experimentation to make conclusions about the human cognitive process.
+
+Hermann Ebbinghaus (1850–1909) conducted cognitive studies that mainly examined the function and capacity of human memory. Ebbinghaus developed his own experiment in which he constructed over 2,000 syllables made out of nonexistent words, for instance EAS. He then examined his own personal ability to learn these non-words. He purposely chose non-words as opposed to real words to control for the influence of pre-existing experience on what the words might symbolize, thus enabling easier recollection of them. Ebbinghaus observed and hypothesized a number of variables that may have affected his ability to learn and recall the non-words he created. One of the reasons, he concluded, was the amount of time between the presentation of the list of stimuli and the recitation or recall of same. Ebbinghaus was the first to record and plot a "learning curve," and a "forgetting curve." His work heavily influenced the study of serial position and its effect on memory, discussed in subsequent sections.
+
+Cognition can in some specific and abstract sense also be artificial.
+
+The term "cognition" is often incorrectly used to mean "cognitive abilities" or "cognitive skills".The word cognition comes from the Latin verb cognosco (con 'with' and gnōscō 'know') (itself a cognate of the Greek verb γι(γ)νώσκω gi(g)nόsko, meaning 'I know, perceive' (noun: γνώσις gnόsis 'knowledge')) meaning 'to conceptualize' or 'to recognize'.</textarea>
+<br>
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <textarea type="text" name="message" ng-model="user.text" required="required" class="form-control" placeholder="paste the lines you have read" rows="3"></textarea>
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  <hr>
+  </div>
+  <center>
+ 
+  <h3 style="color:green";>This predicts  cognition reading behaviour</h3>
+   <h3 style="color:blue";>Your  Results:</h3>
+   </center>
+   
+	  <div class="row">
+      <div class="col">
+	 
+        <div  class="tile1 tile-double1 calm-bg">
+ 
+ <center style="padding:10px;10px;10px;10px">
+		Total Words:{{words| number :2}}</div>
+      </div>
+     </center>
+        
+      </div>
+  <div class="row">
+      <div class="col">
+	 
+        <div  class="tile1 tile-double1 calm-bg">
+ 
+ <center style="padding:10px;10px;10px;10px">
+		 Total Minutes:{{minutes| number :2}}</div>
+      </div>
+     </center>
+        
+      </div>
+  
+  
+  <p style="color:maroon";>Note:Average score should be 200-300WPM for good cognition/100-200 WPM for Average Cognition/Less than 100 WPM has serious cognition behaviour</p>
+  <a  href="#/app/creadingchart" class="button button-full button-positive">Go To Chart</a>
+  </div>
+  
+</ion-content >
+</ion-view  >

@@ -1,0 +1,27 @@
+<ion-view view-title="Mindset Chart ">
+<ion-content padding="true" >
+<center>
+<p style="color:blue">Displays last 14 readings</p>
+</center>
+
+    <div class="card">
+        <div class="item item-divider">
+            Affect Index
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" data="data1" labels="labels" legend="true" series="series1" options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
+	<div class="card">
+        <div class="item item-divider">
+             Intensity Index
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" data="data2" labels="labels" legend="true" series="series2" options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
+	
+   
+	
+</ion-content>
+</ion-view>

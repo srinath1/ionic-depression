@@ -1,0 +1,56 @@
+  <ion-view view-title="Blog">
+  <ion-content  style="background-color: powderblue">
+  
+  
+    <div class=" list card"  ng-repeat="data in images track by $index">
+		   
+         <div class="item item-avatar  item-text-wrap item-energized">
+	    <h3>{{Firstname[$index]}} {{Lastname[$index]}}: {{Country[$index]}}-{{Title[$index]}}</h3>
+		
+        
+           
+		 
+		   
+		  
+      </div>
+		  
+      
+      <div class="item item-body ">
+    	<p>{{Message[$index]}}</p>
+	  </div>
+  
+  
+ 
+	
+		
+		
+
+
+	
+	
+   <div class="item tabs tabs-energy tabs-icon-left">
+	                
+	       <a class="tab-item  positive"  ng-click="shareAnywhere(x.title, x.shares)">
+          <i class="icon ion-forward"></i>
+          Share
+		  </a>
+              
+        <a class="tab-item assertive" href="#/app/sharetheopinion">
+          <i class="icon ion-edit"></i>
+               Write Your Story
+             </a>
+		 
+      </div>
+
+	
+			
+		
+	
+		
+				
+
+	
+  </ion-content>
+</ion-view>
+
+ 

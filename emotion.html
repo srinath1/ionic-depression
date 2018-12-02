@@ -1,0 +1,125 @@
+<ion-view view-title="Depression Emotion Analysis">
+
+<ion-content padding="true" >
+
+<br>
+<center>
+<h3 style="color:blue">This  feature uses AI( IBM Watson  artificial intelligence) to analyse your depression feelings</h3>
+</center>
+<br>
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <textarea type="text" name="message" ng-model="user.text" required="required" class="form-control" placeholder="enter at least 100 words about your feelings now" rows="3"></textarea>
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  <hr>
+  </div>
+		 <div class="row">
+      <div class="col">
+        <div class="tile1 tile-double1 balanced-bg">
+		<div><i class="ion-bonfire"></i></div>Anger:{{emotion_score | number :2}}</div>
+      </div>
+      <div class="col col-offset-15">
+       
+         <div class="tile1 tile-double1 balanced-bg">
+		 <div><i class="ion-bug"></i></div>Disgust:{{emotion_score1| number :2}}</div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 balanced-bg">
+ <div><i class="ion-pin"></i></div>
+		Fear:{{emotion_score2| number :2}}</div>
+      </div>
+      <div class="col">
+       
+         <div class="tile1 tile-double1 balanced-bg">
+		  <div><i class="ion-happy"></i></div>Joy:{{emotion_score3| number :2}}</div>
+        </div>
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 balanced-bg">
+		 <div><i class="ion-social-codepen-outline"></i></div>Depression:{{emotion_score4| number :2}}</div>
+      </div>
+     
+        
+      </div>
+	    <div class="row">
+      
+      <div class="col">
+       
+          <div class="tile2 tile-double2 balanced-bg">
+		   <div><i class="ion-calculator"></i></div>Analytical:{{language_score1| number :2}}</div>
+        </div>
+        
+      </div>
+    </div>
+	</div>
+		 <div class="row">
+     
+      <div class="col col-offset-15">
+       
+         <div class="tile1 tile-double1 balanced-bg">
+		 <div><i class="ion-android-open"></i></div>Openness:{{social_score1| number :2}}</div>
+        </div>
+        
+      </div>
+    </div>
+	
+    </div>
+
+    <div class="row">
+      <div class="col">
+	 
+        <div class="tile2 tile-double2 balanced-bg">
+ <div><i class="ion-ribbon-b"></i></div>
+		Conscientiouness:{{social_score2| number :2}}</div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      
+      <div class="col">
+       
+         <div class="tile1 tile-double1 balanced-bg">
+		  <div><i class="ion-loop"></i></div>Extraversion:{{social_score3| number :2}}</div>
+        </div>
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+       <div class="tile1 tile-double1 balanced-bg">
+		 <div><i class="ion-checkmark"></i></div>Ag'bleness:{{social_score4| number :2}}</div>
+      </div>
+     
+        
+      </div>
+    </div>
+	<div class="row">
+     
+      <div class="col">
+       
+         <div class="tile1 tile-double1 balanced-bg">
+		   <div><i class="ion-help-buoy"></i></div>Emotional Range:{{social_score5| number :2}}</div>
+        </div>
+        
+      </div>
+    </div>
+  
+  <a  href="#/app/emotionchart" class="button button-full button-positive">Go To Chart</a>
+  
+  
+</ion-content >
+</ion-view  >

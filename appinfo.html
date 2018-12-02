@@ -1,0 +1,17 @@
+<ion-view title="App Info">
+
+
+    <ion-content>
+     <div class="card  ">
+	  <div class="item item-text-wrap">
+      <ion-list>
+        <ion-item ng-click="showOrDont($index)" ng-repeat="question in faqArr">{{ question.question }}
+          <p ng-show="show == $index" class="item-icon-accordian inset">A: {{ question.answer }}</p>
+        </ion-item>
+		</div>
+		</div>
+      </ion-list>
+    </ion-content>
+    </ion-view>
+
+	

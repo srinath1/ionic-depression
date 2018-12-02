@@ -1,0 +1,37 @@
+<ion-view view-title="Pedometer Index Chart" >
+<ion-content >
+
+	<div class="card">
+        <div class="item item-divider">
+           Total Steps
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" chart-data="data1d" chart-labels="labels1a" legend="true" chart-series="series1d"  options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
+	<div class="card">
+        <div class="item item-divider">
+           Total Distance(km)
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" chart-data="data1a" chart-labels="labels1a" legend="true" chart-series="series1a"  options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
+	<div class="card">
+        <div class="item item-divider">
+           Total Calories Burnt(cal/mile)
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" chart-data="data1e" chart-labels="labels1a" legend="true" chart-series="series1e"  options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
+	<div class="card">
+        <div class="item item-divider">
+           BMI
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" chart-data="data1a" chart-labels="labels1a" legend="true" chart-series="series"  options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
+</ion-content >
+</ion-view  >

@@ -1,0 +1,54 @@
+<ion-view view-title="Sentimental Analysis">
+
+<ion-content padding="true" >
+
+
+<center>
+<h3 style="color:blue">This uses AI(artificial intelligence) to analyse your text</h3>
+</center>
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <textarea type="text" name="message" ng-model="user.message" required="required" class="form-control" placeholder="enter at least 100 words about your feelings now" rows="3"></textarea>
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  <table id="table--timedist">
+  <tr>
+    <th>Sentimental Result:</th>
+   
+  </tr>
+  <tr>
+    <td style="color:green;">Sentiment Score:{{sentiment*100|number:0}}</td>
+   
+  </tr>
+  <tr>
+    <td style="color:purple;">Label :{{label}}</td>
+   
+  </tr>
+  <tr>
+    <td style="color:black;">Emphasis Score:{{emphasis*100|number:0}}</td>
+   
+  </tr>
+  <tr>
+    <td style="color:orange;">Amplitude Score:{{amplitude*100|number:0}}</td>
+    
+  </tr>
+  <tr>
+    <td style="color:red;">Dirtiness Score:{{dirtiness*100|number:0}}</td>
+    
+  </tr>
+   <tr>
+    <td style="color:blue;">Confidence Score:{{confidence*100|number:0}}</td>
+    
+  </tr>
+</table>
+<p style="color:red;">Note:Higher the score better is the result(except for  the Dirtiness Score)</p>
+   
+   <div>
+   
+   <a  href="#/app/sentichart" class="button button-full button-royal">Go To Chart</a>
+   </div>
+</ion-content >
+</ion-view  >

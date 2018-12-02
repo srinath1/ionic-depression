@@ -1,0 +1,19 @@
+<ion-view view-title="Your Depression Index" >
+<ion-content padding="true">
+<br>
+
+<center>
+<p style="color:blue">Displays last 14 readings</p>
+<p style="color:blue">Higher the reading means better control on youself</p>
+</center>
+    <div class="card">
+        <div class="item item-divider">
+            Depression Survey Chart
+        </div>
+        <div class="item item-text-wrap">
+            <canvas id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series" options="{showTooltips: false}"></canvas>
+        </div>
+    </div>
+   
+</ion-content>
+</ion-view>

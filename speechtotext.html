@@ -1,0 +1,29 @@
+ <ion-view view-title="Depression/Anxiety Tool Test" >
+  <ion-content   style="background-image: url('https://i.ytimg.com/vi/9yHjPyqjlAU/maxresdefault.jpg');" ng-controller="SpeechRecognitionController">
+  <br>
+  <center>
+  <h3>This feature tests the number of words spoken per 30 secs & uses Artificial Intelligence to check for the mental related disorders<h3>
+      </center>
+	  <center>
+	  <h4>1.Start Timer<h4>
+	  <h4>2.Press Record<h4>
+	  <h4>3.Stop after Timer stops<h4>
+	  
+	  </center>
+	  <br>
+            <button class="button button-full button-positive" ng-click="record()">
+                Record
+            </button>
+
+        <div class="card">
+          <div class="item item-text-wrap">
+           <p>Text: {{recognizedText}}</p>
+          </div>
+        </div>
+		 <button class="button button-full button-positive" ng-click="submitForm()">
+                Check
+            </button>
+			<h3>Response:{{response}}</h3>
+      </ion-content>
+
+</ionic-view>

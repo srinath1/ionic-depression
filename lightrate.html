@@ -1,0 +1,37 @@
+<ion-view view-title="Light Sensor" >
+
+ 
+<ion-content padding="true">
+<center>
+<h3 style="color:green">Effect Of Light On Depression</h3>
+</center>
+
+<hr >
+  <center>
+  <p>This feature will study the effect of intensity of light on using device</p>
+  <p>According to the US Enviornmental Agency people who are exposed to too much light by sitting infront of computers etc can be affected with depression disorders if they turn on light during night while going for a sleep</p>
+  <p>The aim is to chart light intensity over a period of time</p>
+  
+        <button class="button button-block button-positive" ng-click="getReading()">Get Data</button>
+		</br>
+		 <table id="table--pizza1">
+  
+  <tr>
+    <th><div><center><i class="ion-android-bulb"></i></center></div>Intensity(Lux)</th>
+    <td>{{intensity}}</td>
+   
+  </tr>
+  
+    
+</table>
+			
+		<br>
+		
+		
+		 <a  href="#/app/lightchart" class="button button-full button-positive">Go To Chart</a>
+		
+		 
+       
+   </center>
+</ion-content >
+</ion-view  >

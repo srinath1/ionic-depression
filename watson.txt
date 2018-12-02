@@ -1,0 +1,63 @@
+
+client
+  .faceDetection(fileName)
+  .then(results => {
+    const faces = results[0].faceAnnotations;
+
+    console.log('Faces:');
+    faces.forEach((face, i) => {
+      console.log(`  Face #${i + 1}:`);
+      console.log(`    Joy: ${face.joyLikelihood}`);
+      console.log(`    Anger: ${face.angerLikelihood}`);
+      console.log(`    Sorrow: ${face.sorrowLikelihood}`);
+      console.log(`    Surprise: ${face.surpriseLikelihood}`);
+    });
+  })
+  .catch(err => {
+    console.error('ERROR:', err);
+  })
+  var upload = multer({ storage: storage }).single('myfile');
+var project='ionic-face-api';
+var id='./ionic.json';
+
+router.post('/upload',  function(req , res){
+  var project='ionic-face-api';
+var id='./ionic.json';
+   upload(req,res,function(err){
+     if (err) {return res.end('error')}
+    res.end('file is uploaded')
+     
+   })
+   })
+   var vision = gcloud.vision({
+  projectId:project,
+  keyFilename: id
+   })
+    vision.detectFaces( req.files, function ( err, body, res )
+            {
+                if ( err )
+                    console.log( err );
+                else {
+                    console.log(res);
+                    res.send(res)
+                }
+            } )
+    res.send(req.files);
+});
+
+ 
+	
+
+// init with auth
+visionnew.init({auth: ' AIzaSyBdhk6PZRZlfWjxbPssOLK7p3Yn8MPgLwk '})
+
+
+const req = new visionnew.Request({
+  image: new vision.Image({
+    url: 'https://scontent-nrt1-1.cdninstagram.com/hphotos-xap1/t51.2885-15/e35/12353236_1220803437936662_68557852_n.jpg'
+  }),
+  features: [
+    new vision.Feature('FACE_DETECTION', 1),
+    new vision.Feature('LABEL_DETECTION', 10),
+  ]
+})

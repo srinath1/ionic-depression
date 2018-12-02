@@ -1,0 +1,30 @@
+<ion-view view-title="Cognition Star">
+	
+  <ion-content  style="background-image: url('https://i.ytimg.com/vi/9yHjPyqjlAU/maxresdefault.jpg');">
+  <div >
+  <div  ng-controller='starCtrl as qCtrl'>
+   <div ng-repeat='question in qCtrl.questions'>
+    <p>{{ question.title }}</p>
+    <div ng-repeat='answer in question.answers'>
+      <input type='radio' name='{{question.title}}' ng-model='qCtrl.selectedAnswers[question.title]' ng-value='answer'>{{ answer.title }}
+	  
+    </div>
+	<hr>
+  </div>
+  
+  <br>
+   <center>
+  <p ng-if='qCtrl.totalQuestions'>
+    {{ qCtrl.correctAnswers }}/{{ qCtrl.totalQuestions }} were correct
+  </p>
+  </
+  <button class="button button-block button-positive" ng-click='qCtrl.validate()'>
+  Validate answers
+</button>
+ 
+
+  
+</div>
+ </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,103 @@
+<ion-view view-title="Earth Magnetic Field Effect Analysis">
+
+<ion-content padding="true" ng-controller="earthmagneticCtrl" >
+<br>
+<center>
+<h3 style="color:blue">This  feature uses Scientific Method to analyze  peak earth magnetic field and depression.</h3>
+<h3 style="color:blue">The depression among patients increases when the earth magnetic field is high.</h3>
+
+</center>
+
+ 
+  <hr>
+  </div>
+  <center>
+ 
+
+ 
+	 
+	 <div style="color:blue;margin-left:10px;" >
+	 <div class="item item-input-inset" style="box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder=" Enter Your city Name" ng-model="cityName">
+    </label>
+    <button class="button button-small button-royal" ng-click="weatherCity(cityName)">
+      Submit
+    </button>
+  </div>
+  
+  </center>
+  <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-arrow-down"></i></div>
+		Declination:{{decl1}}nT-{{decl}} </div>
+      </div>
+     
+        
+      </div>
+	  <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-arrow-up"></i></div>
+		inclination:{{incl1}}nT-{{incl}} </div>
+      </div>
+     
+        
+      </div>
+	  <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-arrow-thin-right"></i></div>
+		Horizantal:{{horiz}}nT </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-arrow-thin-left"></i></div>
+		East Intensity:{{eastintensity}}nT </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-circle-outline"></i></div>
+		North Intensity:{{northintensity}}nT </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-android-arrow-dropup"></i></div>
+		Vertical Intensity:{{verticalintensity}}nT </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-close-outline"></i></div>
+		Total Intensity:{{totalintensity}}nT </div>
+      </div>
+     
+        
+      </div>
+	  </div>
+  
+</ion-content >
+</ion-view  >

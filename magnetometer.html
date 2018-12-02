@@ -1,0 +1,22 @@
+<ion-view view-title="Sleep Direction Analysis">
+  <ion-content padding="true" style="background-color:Chartreuse" ng-controller='MotionController' >
+  <center>
+  <h3>This feature uses your device  magnetometer to measure to check the direction of sleep & movement</h3>
+  </center>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Frequency</span>
+                    <input type="text" placeholder="0" ng-model="options.frequency">
+                </label>
+            </div>
+            <button class="button button-full button-positive" ng-click="startWatching()">
+                Start Measurement
+            </button>
+            <button class="button button-full button-positive" ng-click="chooseMessage()">
+                Stop Measurement
+            </button>
+			
+        </ion-content>
+  
+	
+</ion-view>

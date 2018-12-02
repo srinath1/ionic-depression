@@ -1,0 +1,39 @@
+<ion-view view-title="Ask me About Depression ">
+
+<ion-content class="contentbot"  padding="true">
+<br>
+
+<div class="panel-footer">
+	<div >
+	<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <textarea type="text" name="message" ng-model="user.message" required="required" class="form-control" placeholder="Enter Here" rows="3"></textarea>
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  </div>
+	
+                    
+					
+                </div>
+				  </div>
+				 </br>
+				   
+				   
+				  <p class= "containernew1 darker">Q:{{usermess}}</div>
+				   </br>
+				    </br>
+					 </br>
+					  </br>
+
+<div  class="containernew" >Ans:{{newdata}}</div>
+ </br>
+					
+ 
+    </ion-content>
+	
+              
+   
+</ion-view>

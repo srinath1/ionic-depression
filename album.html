@@ -1,0 +1,24 @@
+<ion-view view-title="Album">
+	<ion-content>
+
+		<div style="background-color:powderblue;" class="list card" ng-repeat="photo in photoList">
+		<center>
+		  <div style="background-color:powderblue;" class="item item-text-wrap">
+		    <h2 style="color:red";>{{photo.info.photo.title['_content']}}</h2>
+		  </div>
+		  </center>
+
+		  <div class="item item-image" style="min-height:100px">
+		    <img alt="{{photo.info.photo.title['_content']}}"zoom-view ng-src="{{photo.sizes.sizes.size[5].source}}">
+		  </div>
+
+		  <div class="item item-text-wrap" ng-show="photo.info.photo.description['_content']" >
+		  <center>
+		    <p style="color:green;" >
+		    	{{photo.info.photo.description['_content']}}
+		    </p>
+			</center>
+		  </div>
+		</div>
+	</ion-content>
+</ion-view>

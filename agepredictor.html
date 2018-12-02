@@ -1,0 +1,31 @@
+<ion-view view-title="Optimism Analysis">
+
+<ion-content padding="true" >
+<br>
+<center>
+<h3 style="color:blue">This  feature uses Scientific Method to analyze  optimism of your statement.</h3>
+</center>
+<br>
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <textarea type="text" name="message" ng-model="user.text" required="required" class="form-control" placeholder="enter at least 30 words  statement about your feelings now" rows="3"></textarea>
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  <hr>
+  </div>
+  <center>
+ 
+  <h3 style="color:green";>This predicts Valence(negative/possitive)optimism of your emotions</h3>
+   <h3 style="color:blue";>Your Optimism Results:</h3>
+  <h4 style="background-color:yellow">AFFECT:{{AFFECT| number :2}}</h4>
+  <h4 style="background-color:wheat">INTENSITY:{{INTENSITY| number :2}}</h4>
+  
+   <a  href="#/app/gesturechart" ng-click="update()" class="button button-full button-positive">Go To Chart</a>
+  <p style="color:maroon";>Note:Lower the score greater is the tendency to fall into problems</p>
+  </center>
+  
+</ion-content >
+</ion-view  >

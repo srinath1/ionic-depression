@@ -1,0 +1,158 @@
+<ion-view view-title="Enviornment On Depression">
+  <ion-content padding="true">
+   
+ <h3 style="color:violet;margin-left:10px">Checks The Enviornmental Effect On Depression.</h3>
+
+ 
+	 
+	 <div style="color:blue;margin-left:10px;" ng-controller="weatherCtrl">
+	 <div class="item item-input-inset" style="box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder=" Eter Your city Name" ng-model="cityName">
+    </label>
+    <button class="button button-small button-royal" ng-click="weatherCity(cityName)">
+      Submit
+    </button>
+  </div>
+  
+  <br>
+
+<div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-circle-outline"></i></div>
+		City:{{city}} </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-record"></i></div>
+		Country:{{country}}  </div>
+      </div>
+     
+        
+      </div>
+   <div class="row">
+      
+      <div class="col">
+       
+         <div class="tile1 tile-double1 calm-bg">
+		  <div><i class="ion-loop"></i></div>  Tempt(Max):{{max}}C</div>
+        </div>
+        
+      </div>
+	
+	 <div class="row">
+      
+      <div class="col">
+       
+         <div class="tile1 tile-double1 calm-bg">
+		  <div><i class="ion-loop"></i></div>  Tempt(Min):{{min}}C</div>
+        </div>
+        
+      </div>
+	  
+	 
+	  
+	  <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-compass"></i></div>
+		Pressure:{{pressure}}  Pa</div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      
+      <div class="col">
+       
+         <div class="tile1 tile-double1 calm-bg">
+		  <div><i class="ion-ios-partlysunny"></i></div>  Humidity:{{humidty}} </div>
+        </div>
+        
+      </div>
+	  <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-cloud"></i></div>
+		Cloud Cover:{{clouds}}  ( Range)</div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-android-star-outline"></i></div>
+		Carbon Monooxide(CO):{{pol_a}}  </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-android-navigate"></i></div>
+		Hydrogen(H):{{pol_b}}  </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-android-bookmark"></i></div>
+		Nitrogen Dioxide:{{pol_c}}  </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-android-star"></i></div>
+		Ozone:{{pol_d}}  </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-moon"></i></div>
+		Particulate Matter(PM25):{{pol_e}}  </div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 calm-bg">
+ <div><i class="ion-ios-shuffle"></i></div>
+		Sulphur Dioxide(So2):{{pol_f}}  </div>
+      </div>
+     
+        
+      </div>
+	 
+	  
+	   <a  href="#/app/geochart" class="button button-full button-positive">Go To Chart</a>
+	 
+	
+    </div>
+	  </ion-content>
+</ion-view>

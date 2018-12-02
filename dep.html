@@ -1,0 +1,40 @@
+ <ion-view  title="Depression Check Tool">
+ 
+     
+	
+	 <ion-content   ng-controller="checkdepressionCtrl">
+	  <div class="list ">
+	 
+	
+    <ul >
+	
+      <li  ng-repeat="question in questions">
+	   <div class="item item-text-wrap">
+       <strong class="question">{{ question.questionText }}</strong>
+       <ul class="unstyled" id="quest_{{$parent.$index}}"">
+        <li class="depressionclass" ng-repeat="answer in question.answers">
+		 
+          <label class="isCorrect_{{answer.selected}}" for="quest_{{$parent.$index}}_answer_{{$index}}">
+            <input type="radio" id="quest_{{$parent.$index}}_answer_{{$index}}" 
+            ng-model="answers[$parent.$index]" value="{{ answer.answerText }}"  name="quest_{{$parent.$index}}_answers" />{{ answer.answerText }}</label>
+        </li>
+       </ul>
+      </li>
+    </ul>
+	</div>
+	<button class="button button-block button-positive" type="submit"   ng-click="showResult()">Submit</button>
+	<button class="button button-block button-royal" type="submit"  ng-click="addchartMessage()">Process Data</button>
+
+   
+  
+  
+	
+  
+ 
+  </div>
+  
+   
+    
+     </ion-content>
+    </ion-view>
+  

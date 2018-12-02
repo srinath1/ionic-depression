@@ -1,0 +1,32 @@
+<ion-view view-title="Cognition Ultra super">
+	
+  <ion-content  style="background-image: url('https://i.pinimg.com/736x/57/6f/11/576f11a3cab7ac5d0354fee75bcb28a3--sherwin-williams-paint-light-french-gray-sherwin-williams-pottery-barn-colors.jpg');">
+  <div >
+  <div  ng-controller='ultraCtrl as qCtrl'>
+   <div ng-repeat='question in qCtrl.questions'>
+    <p>{{ question.title }}</p>
+    <div ng-repeat='answer in question.answers'>
+      <input type='radio' name='{{question.title}}' ng-model='qCtrl.selectedAnswers[question.title]' ng-value='answer'>{{ answer.title }}
+	  
+    </div>
+	<hr>
+  </div>
+  
+  <br>
+  <center>
+  <p ng-if='qCtrl.totalQuestions'>
+    {{ qCtrl.correctAnswers }}/{{ qCtrl.totalQuestions }} were correct
+  </p>
+  </center>
+  <button class="button button-block button-positive" ng-click='qCtrl.validate()'>
+  Validate answers
+</button>
+ 
+
+  <p ng-if='qCtrl.totalQuestions'>
+    {{ qCtrl.correctAnswers }}/{{ qCtrl.totalQuestions }} were correct
+  </p>
+</div>
+ </div>
+  </ion-content>
+</ion-view>

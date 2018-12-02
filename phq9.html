@@ -1,0 +1,281 @@
+<ion-view view-title="PHQ9 Tool">
+  <ion-content padding="true">
+
+  <div >
+<center>
+    <h2>Personal History</h2>
+	</center>
+	<hr>
+	
+
+    <form  class="quiz">
+    
+        
+        
+        <!-- RADIO BUTTONS -->
+        <label>Did You had Little interest or pleasure in doing things?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="pleasure0" value="0" ng-model="formData.pleausre">
+                    Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="pleasure1" value="1" ng-model="formData.pleausre">
+                    Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="pleasure2" value="2" ng-model="formData.pleausre">
+                    More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="pleasure3" value="3" ng-model="formData.pleausre">
+                    Nearly Every Day
+                </label>
+            </div>
+			 </div>
+			            
+        <label>Are you having feeling down or depressed?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="depressed0" value="0" ng-model="formData.depressed">
+                     Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="depressed1" value="1" ng-model="formData.depressed">
+                  Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="depressed2" value="2" ng-model="formData.depressed">
+                    More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="depressed3" value="3" ng-model="formData.depressed">
+                     Nearly Every Day
+                </label>
+            </div>
+			 </div>
+			  <label>Are you having Trouble falling asleep, staying asleep, or sleeping too much ?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="sleep0" value="0" ng-model="formData.sleep">
+                     Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="sleep1" value="1" ng-model="formData.sleep">
+                     Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="sleep2" value="2" ng-model="formData.sleep">
+                     More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="sleep3" value="3" ng-model="formData.sleep">
+                     Nearly Every Day
+                </label>
+            </div>
+			 </div>
+		<label>Are you having Feeling tired or having little energy  ?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="tired0" value="0" ng-model="formData.tired">
+                   Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="tired0" value="1" ng-model="formData.tired">
+                    Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="tired0" value="2" ng-model="formData.tired">
+                   More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="tired0" value="3" ng-model="formData.tired">
+                      Nearly Every Day
+                </label>
+            </div>
+			 </div>
+			 <label>Are you having Poor appetite or overeating ?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="appetite0" value="0" ng-model="formData.appetite">
+                     Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="appetite1" value="1" ng-model="formData.appetite">
+                      Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="appetite2" value="2" ng-model="formData.appetite">
+                      More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="appetite3" value="3" ng-model="formData.appetite">
+                      Nearly Every Day
+                </label>
+            </div>
+			 </div>
+			  <label>Are you Feeling bad about yourself ?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="feeling0" value="0" ng-model="formData.feeling">
+                      Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="feeling1" value="1" ng-model="formData.feeling">
+                     Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="feeling2" value="2" ng-model="formData.feeling">
+                      More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="feeling3" value="3" ng-model="formData.feeling">
+                    Nearly Every Day
+                </label>
+            </div>
+			 </div>
+			  <label>Are you  having trouble concentrating on things, such as TV & Newspapers ?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="conc0" value="0" ng-model="formData.conc">
+                       Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="conc1" value="1" ng-model="formData.conc">
+                      Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="conc2" value="2" ng-model="formData.conc">
+                     More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="conc3" value="3" ng-model="formData.conc">
+                     Nearly Every Day
+                </label>
+            </div>
+			 </div>
+          
+       <label>Are you having problem in moving or speaking so that other people are observing ?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="moving0" value="0" ng-model="formData.moving">
+                     Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="moving" value="1" ng-model="formData.moving">
+                     Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="moving" value="2" ng-model="formData.moving">
+                    More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="moving" value="3" ng-model="formData.moving">
+                      Several Days
+                </label>
+            </div>
+			 </div>
+			  <label>Are you having thoughts to die..... ?</label>
+        <div class="form-group">
+            <div class="radio">
+                <label>
+                    <input type="radio" name="thoughts0" value="0" ng-model="formData.thoughts">
+                     Not At All
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="thoughts1" value="1" ng-model="formData.thoughts">
+                    Several Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="thoughts2" value="2" ng-model="formData.thoughts">
+                     More Than Half Of The Days
+                </label>
+            </div>
+			<div class="radio">
+                <label>
+                    <input type="radio" name="thoughts3" value="3" ng-model="formData.thoughts">
+                       Nearly Every Day
+                </label>
+            </div>
+			 </div>
+			 
+         <button type="submit" class="button button-block button-assertive"  ng-click="addMessage()">Send</button>
+        
+    </form>
+	 <div >
+	                
+	      <a  href="#/app/phq9chart" class="button button-full button-positive">Go To Chart</a>
+              
+        
+		 
+      
+	
+	
+	 </div>
+    
+   
+    
+        
+   
+</ion-content>
+</ion-view>

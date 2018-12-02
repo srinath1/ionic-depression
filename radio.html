@@ -1,0 +1,17 @@
+<ion-view view-title="My Music">
+
+ <ion-content padding="true">
+    
+ <button  class = "button button-small button-balanced" ng-click='audio.paused ? audio.play() : audio.pause()'>Play</button>
+ <button  class = "button button-small button-assertive"ng-click='audio.restart()'>Stop</button>
+ <button  class = "button button-small button-royal "ng-click='audio.muting = !audio.muting'>Mute</button>
+ </br>
+
+ <label>Current Time</label>
+ <p ng-model='audio.currentTime'></p>
+ <label>Volume</label>
+ <input class='form-control' type=range min=0 max=1 step=0.01 ng-model='audio.volume'>
+ </div>
+    </ion-content>
+   
+</ion-view>

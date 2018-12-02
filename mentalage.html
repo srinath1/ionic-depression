@@ -1,0 +1,91 @@
+<ion-view view-title="Mental Age Predictor">
+
+<ion-content padding="true" >
+
+<br>
+<center>
+<h3 style="color:blue">This  feature uses Scientific Method(Artificial Intelligence) to analyze your mental age.</h3>
+</center>
+<br>
+<div ng-controller="predictingageCtrl">
+ <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <textarea type="text" name="message" ng-model="user.text" required="required" class="form-control" placeholder="enter at least 30 words about your feelings now" rows="3"></textarea>
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  </div>
+  
+ 
+   
+ 
+  
+  
+  <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-pizza"></i></div>
+		<h4>13-17(yrs):{{age1|number:1}}% Chances</h4></div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-magnet"></i></div>
+		<h4>18-25(yrs):{{age2|number:1}}% Chances</h4></div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-leaf"></i></div>
+		<h4>26-35(yrs):{{age3|number:1}}% Chances</h4></div>
+      </div>
+     
+        
+      </div>
+	    <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-model-s"></i></div>
+		<h4>36-50(yrs):{{age4|number:1}}% Chances</h4></div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-nuclear"></i></div>
+		<h4>31-65(yrs):{{age5|number:1}}% Chances</h4></div>
+      </div>
+     
+        
+      </div>
+	   <div class="row">
+      <div class="col">
+	 
+        <div class="tile1 tile-double1 stable-bg">
+ <div><i class="ion-umbrella"></i></div>
+		<h4>65-100(yrs):{{age6|number:1}}% Chances</h4></div>
+      </div>
+     
+        
+      </div>
+  </div>
+   
+  
+  
+  </ion-content >
+</ion-view  >

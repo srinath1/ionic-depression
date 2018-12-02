@@ -1,0 +1,77 @@
+<ion-view view-title="Pedometer" >
+
+ 
+<ion-content padding="true" >
+<div ng-controller="pedoCtrl">
+<center>
+
+
+
+   <h3 style="color:green;">Count The Steps & Energy Burnt</h3>
+    
+	 
+        <h3 style="color:Red;">Steps Count:{{steps}}</h3>
+		
+		 		
+	   <p style="color:darkblue;">Calculation is based on the casual walk(3.2Kmph)
+	   </br>
+	   
+	    
+		
+			 
+     </br>
+	  <button class="button button-block button-positive"    ng-click="info()">Count Your Steps</button>
+	 	 
+	  </br>
+	   <button class="button button-block button-assertive"    ng-click="resetButton()">Reset Your Steps</button>
+	    </br>
+	  
+	   </center>
+	   
+	   
+   <div ng-controller="newpedoController">
+    <center>
+   <label class="item item-input item-floating-label">
+                <span class="input-label">Weight(kg.)</span>
+                <input type="number" ng-model="bw" placeholder="Weight(kg.)">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Height(Cm.)</span>
+                <input type="number" ng-model="height" placeholder="Height(Cm.)">
+            </label>
+<button type="submit" class="button button-block button-assertive" ng-click="bmiCalc(bw,height)">Check Calories Burnt & BMI</button>
+<table id="table--pizza3">
+  
+  <tr>
+    <th><center><div><i class="ion-ios-body-outline"></i></div></center>Body Mass Index</th>
+    <td>{{bmi}}</td>
+   
+  </tr>
+  
+    <tr>
+      <th><center><div><i class="ion-flame"></i></div></center>Calories Burnt(cal)</th>
+      <td>{{calories}}</td>
+      
+    </tr>
+	<tr>
+      <th><center><div><i class="ion-ios-fastforward"></i></div></center>Total Distance(km)</th>
+      <td>{{distance}}</td>
+      
+    </tr>
+</table>
+
+                <input type="number" ng-model="$parent.steps" placeholder="steps">
+				<a  href="#/app/pedochart" class="button button-full button-royal">Go To Chart</a>
+           
+
+ 
+	 </center>
+	 </div>
+   
+   
+   </div>
+       
+       
+   
+</ion-content >
+</ion-view  >

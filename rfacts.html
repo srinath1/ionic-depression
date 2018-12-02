@@ -1,0 +1,39 @@
+<ion-view view-title="Random Facts">
+ <ion-content padding="true" style="background-color:blue">
+ <div ng-controller="rfactsCtrl">
+ <br>
+ <br>
+ <center>
+ <h3> Random Facts:{{data1}}</h3>
+ </center>
+ <hr>
+ </div>
+ <div ng-controller="numberCtrl">
+ <center>
+ <h3> Number Facts:{{data1}}</h3>
+ </center>
+  <form name="userForm" ng-submit="submit(userForm.$valid)" novalidate>
+<div ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }" class="form-group col-sm-12">
+         
+          <input type="number" name="message" ng-model="user" required="required" min="1" max="1000" placeholder="enter number between 1 & 1000" class="form-control">
+         <button type="submit" ng-disabled="userForm.$invalid" class="button button-full btn-primary">Submit</button>
+		  <label ng-show="userForm.$valid" ng-hide="userForm.$invalid"></label>
+ 
+  </form>
+  
+
+ 
+ </div>
+ </div>
+ </hr>
+ <div ng-controller="triviaCtrl">
+ 
+ <br>
+ <br>
+ <center>
+ <h3> Trivia Facts:{{data1}}</h3>
+ </center>
+ <hr>
+ </div>
+  </ion-content>
+</ion-view>

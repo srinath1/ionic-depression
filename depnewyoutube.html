@@ -1,0 +1,36 @@
+<ion-view view-title="Youtube"> 
+
+ <ion-content padding="true" >
+    
+    
+        <div class="col-sm-6 wrapper">
+          <ng-youtube-embed video="video1" width="100%">
+          </ng-youtube-embed>
+          
+        </div>
+        <div class="col-sm-6 wrapper">
+        <ng-youtube-embed video="video2" playlist="https://www.youtube.com/watch?v=dulxbKkj9Wg,https://www.youtube.com/watch?v=lxgelwqe8-E" width="100%">
+          </ng-youtube-embed>
+          <label class="text-center">Playlist</label>
+        </div>
+        <div class="col-sm-6 wrapper">
+          <ng-youtube-embed video="video3" width="100%">
+          </ng-youtube-embed>
+          <label class="text-center">Update video URL / Id (watch scope changes)</label>
+          <form>
+            <input class="form-control" type="text" id="link" name="link" placeholder="Change URL" ng-model="video3">
+          </form>
+        </div>
+        <div class="col-sm-6 wrapper">
+          <ng-youtube-embed video="video4" width="100%">
+          </ng-youtube-embed>
+          <label class="text-center">Out of the box <a href="https://gaming.youtube.com/" target="_blank">gaming.youtube.com</a> support (without any extra parameter)</label>
+        </div>
+       
+       
+      </div>
+    </div>
+  </div>
+</div>
+ </ion-content>
+ </ion-view>  

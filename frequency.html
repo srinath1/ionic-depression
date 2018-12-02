@@ -1,0 +1,63 @@
+ <ion-view title="Audio Frequency" >
+	
+
+	<ion-content  style="background-color":"yellow" padding="true">
+	
+	
+
+	<div >
+	    <h1>Web audio analyzer and MIR application</h1>
+			
+	    <p>Select an audio file and hit play button.</p>
+	    <input id="fileselector" type="file" accept="audio/*">
+	    <audio id="audiotag" preload="none" controls>
+	your browser doesn't support audio tag
+	</audio>
+
+		<br><br>
+		
+		<div id="metersWrapper">
+		<div id="left">
+			<h4>RMS meter</h4>
+			<span class="meterLabels">L</span><meter id="RMSmeterL" min="-60" low="-60" high="-2" value='-60' max='0'></meter>
+			<span class="meterLabels" id="LrmsPeak_tag"></span>
+			<br>
+			<span class="meterLabels">R</span><meter id="RMSmeterR" min="-60" low="-60" high="-2" value='-60' max='0'></meter>
+			<span class="meterLabels" id="RrmsPeak_tag"></span><br>
+			<br>
+		</div>
+
+		<div id="right">
+			<h4>Peak</h4>
+			<span class="meterLabels">L </span><meter class="invisible"></meter>
+			<span class="meterLabels" id="LPeak_tag"></span><br>
+			<span class="meterLabels">R </span><meter class="invisible"></meter>
+			<span class="meterLabels" id="RPeak_tag"></span><br>
+			<br>
+		</div>
+		<div id="buttons">
+			<button id="resetPeaksBtn">RESET PEAKS</button>
+		</div>
+		</div>
+
+
+		
+		
+		<br>
+		
+		<br>
+
+
+
+		<div class="canvasLabels">Spectrum analyzer</div>
+		<canvas id="canvasBars" width="600" height="512"></canvas>
+		<!-- background-color: rgb(111, 111, 111); -->
+		<br>
+		<canvas id="canvasBarsCAPT" width="600" height="30"></canvas>	
+		<!-- <div id="visualisation"></div> -->
+		
+<canvas id="canvasSpectro" width="600" height="512" moz-opaque></canvas>
+	</ion-content>
+
+</ion-view>      
+<canvas id="canvasStar" width="600" height="512"></canvas>	                 
