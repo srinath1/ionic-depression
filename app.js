@@ -5748,7 +5748,432 @@ $scope.myObj = {
 
 })
 
-//stock
+//astro controller
+
+.controller('astroMenuCtrl', function($http, $scope, $sce, $ionicScrollDelegate,$timeout,$rootScope){
+	
+	$scope.categories = [];
+	
+	});
+
+	$http.get("http://eurtestcanteen.in/astro/api/get_category_index/").then(
+		function(returnedData){
+
+			$scope.categories = returnedData.data.categories;
+			$scope.categories.forEach(function(element, index, array){
+				element.title = $sce.trustAsHtml(element.title);
+			})
+			console.log(returnedData);
+
+		}, function(err){
+			console.log(err);
+	})
+
+})
+
+.controller('astroMainCtrl', function($http, $scope, $sce, $ionicScrollDelegate,$timeout, $localStorage, $ionicLoading){
+
+	$scope.offset = 0;
+	$scope.count_total = 1;
+
+	$scope.doRefresh = function(){
+		$scope.recent_posts = [];
+		$http.get("http://eurtestcanteen.in/astro/api/get_posts/").then(function(data){
+			console.log(data);
+			$scope.recent_posts = data.data.posts;
+			$scope.count_total = data.data.count_total;
+			$scope.recent_posts.forEach(function(element, index, array){
+				element.excerpt = element.excerpt.substr(0,100);
+				element.excerpt = element.excerpt + "... Read More";
+				element.excerpt = $sce.trustAsHtml(element.excerpt);
+				if($scope.Favorites.indexOf(element.id) != -1)
+					element.isFavorite = true;
+				else
+					element.isFavorite = false;
+			})
+			
+			$scope.$broadcast('scroll.refreshComplete');
+
+		}, function(err){
+
+		})
+	}
+
+	$scope.Favorites = $localStorage.Favorites;
+	if(!$scope.Favorites)
+		$scope.Favorites = [];
+
+	$scope.recent_posts = [];
+
+	$http.get("http://eurtestcanteen.in/astro/api/get_posts/").then(function(data){
+		console.log(data);
+		$scope.recent_posts = data.data.posts;
+		$scope.count_total = data.data.count_total;
+		$scope.recent_posts.forEach(function(element, index, array){
+			element.excerpt = element.excerpt.substr(0,100);
+			element.excerpt = element.excerpt + "... Read More";
+			element.excerpt = $sce.trustAsHtml(element.excerpt);
+			if($scope.Favorites.indexOf(element.id) != -1)
+				element.isFavorite = true;
+			else
+				element.isFavorite = false;
+		})
+	}, function(err){
+
+	})
+
+	$scope.canLoadMore = function()
+	{
+		return true;
+	}
+
+	$scope.timer = new Date().getTime();
+	$scope.lastTimer = new Date().getTime();
+
+	$scope.loadMore = function(){
+		
+		$scope.timer = new Date().getTime();
+		//console.log(new Date($scope.timer - $scope.lastTimer).getTime())
+		if(new Date($scope.timer - $scope.lastTimer) > 5000)
+		{
+			$scope.lastTimer = new Date().getTime();
+			$http.get("http://eurtestcanteen.in/astro/api/get_posts/?offset="+$scope.offset)
+			.then(function(data){
+				var newPosts = data.data.posts;
+				$scope.count_total = data.data.count_total;
+
+				newPosts.forEach(function(element, index, array){
+					element.excerpt = element.excerpt.substr(0,100);
+					element.excerpt = element.excerpt + "... Read More";
+					element.excerpt = $sce.trustAsHtml(element.excerpt);
+				})
+
+				$scope.recent_posts.push.apply($scope.recent_posts, newPosts);
+				$scope.$broadcast("scroll.infiniteScrollComplete");
+				$scope.offset += 10;
+		});
+		}
+
+		
+	};
+	
+	$scope.searchTextChanged = function(){
+		$ionicScrollDelegate.$getByHandle('mainScroll').scrollTop(true);
+	}
+
+	$scope.toggleFavorite = function(post){
+
+		post.isFavorite = !post.isFavorite;
+
+		if(post.isFavorite == true)
+		{
+			$scope.Favorites.push(post.id);
+		}
+		else
+		{
+			$scope.Favorites.forEach(function(e, i ,a){
+				if(e == post.id){
+					$scope.Favorites.splice(i, 1);
+					console.log("Spliced index "+ i);
+				}
+			})
+		}
+
+		$localStorage.Favorites = $scope.Favorites;
+	}
+})
+.controller('astroPostCtrl', function($scope, $http, $stateParams, $sce){
+	
+	$http.get('http://eurtestcanteen.in/astro/api/get_post/?id='+ $stateParams.postId).then(
+		function(data){
+			$scope.post_title = data.data.post.title;
+			$scope.post_category = data.data.post.categories[0].title ? data.data.post.categories[0]
+				.title : 'No Category';
+			$scope.post_content = $sce.trustAsHtml(data.data.post.content);
+			$scope.post_date = data.data.post.date;
+			$scope.post_authorName = data.data.post.author.first_name + " " + data.data.post.author.last_name;
+		      if($scope.post_authorName.trim() == '')
+		        $scope.post_authorName = "No Name";
+		      $scope.post_authorImage = 'http://ionicframework.com/img/docs/mcfly.jpg';
+		      $scope.post_image = data.data.post.thumbnail_images.full.url;
+		      $scope.post_commentCount = data.data.post.comment_count;
+		      $scope.post_views = data.data.post.custom_fields.post_views_count[0];
+		      $scope.post_url = data.data.post.url;
+		}, function(err){
+
+		})
+
+	$scope.Share = function(){
+		window.plugins.socialsharing.share($scope.post_title, $scope.post_title, $scope.post_image, $scope.post_url);
+	}
+
+})
+
+
+
+.controller('astroFavCtrl', function($http, $scope, $localStorage, $sce){
+
+	$scope.doRefresh = function(){
+
+    $scope.Favorites = $localStorage.Favorites;
+    $scope.favorite_posts = [];
+    $scope.Favorites.forEach(function(element, index, array){
+      $http.get('http://eurtestcanteen.in/astro/api/get_post/?id='+element)
+      .success(function(data){
+        $scope.favorite_posts.push(data.post);
+
+        if($scope.favorite_posts.length == $scope.Favorites.length)
+        {
+          $scope.favorite_posts.forEach(function(post, position, list){
+            post.excerpt = post.excerpt.substr(0,100);
+            post.excerpt = post.excerpt + '... Read More';
+            post.excerpt = $sce.trustAsHtml(post.excerpt);
+            
+            if($scope.Favorites.indexOf(post.id) != -1)
+              post.isFavorite = true;
+            else
+              post.isFavorite = false;
+          })
+        }
+      })
+
+      .finally(function(){
+        $scope.$broadcast('scroll.refreshComplete');
+      })
+    })
+
+  }
+
+  $scope.doRefresh();
+
+  $scope.toggleFavorite = function(post){
+    post.isFavorite = !post.isFavorite;
+
+    if(post.isFavorite)
+    {
+      $scope.Favorites.push(post.id)
+    }
+    else
+    {
+      $scope.Favorites.forEach(function(element, index, array){
+        if(element == post.id)
+        {
+          $scope.Favorites.splice(index, 1);
+          console.log("Spliced Item from index " + index);
+        }
+      })
+    }
+
+    $localStorage.Favorites = $scope.Favorites;
+}
+})
+//data
+{
+  "calendar": [
+    {
+      "weekday": "Monday",
+      "title": "Art in Full Color",
+      "description": "The first day of CAC events and exhibits is kicked off under the theme of Art in Full Color From a demonstration in graffiti art on a wall of the Rousseau Room, to the exhibit of colorful glazed modern glassware in the Dover Hall, Art in Full Color will get CAC started in full swing!",
+      "schedule": [
+        {
+          "time": "9:30-10:30am",
+          "shortname": "LaVonne_LaRue",
+          "artist": "LaVonne L. LaRue",
+          "room": "Elizabeth Hall",
+          "description": "Watch LaVonne L. LaRue, a Chicago graffiti artist share her love and skill of mural art on Monday's schedule, as she starts the painting of a 20-foot high wall in the Rousseau Room of Hotel Contempo, which will be finished at the end of the conference. Make sure to show up a bit early, as this session will be standing-room only.",
+          "title": "Art in Unexpected Places"
+        }, {
+          "time": "11:00am-1pm",
+          "shortname": "Hassum_Harrod",
+          "name": "Hassum Harrod",
+          "room": "Victoria Hall",
+          "description": "Drawing and painting flowers may seem like a first-year art student's assignment, but Hassum Harrod brings depth, shadows, light, and color to new heights with his unique technique of painting on canvas with ceramic glaze. This session is sure to be a hit with mixed media buffs.",
+          "title": "Art in Full Bloom"
+        },{
+          "time": "2:30-4:00pm",
+          "room": "Dennison Hall",
+          "description": "Grab your pencils, charcoal, acrylics, watercolors, or whatever painting tools suit your fancy, and participate in the capturing of various still life settings that are staged all around Dennison Hall. You won't believe the wealth and depth of choices.",
+          "title": "Still Life"
+        }
+      ]
+    }, {
+      "weekday": "Tuesday",
+      "title": "Water in Art",
+      "description": "Water in Art is the theme for the second day, as art students from around the world gather at the Fountain of Intrigue in the gardens of Hotel Contempo to create ice sculptures, and art lecturers discuss the use of water as an art material, and water as an art subject.",
+      "schedule": [
+        {
+          "time": "9:30-10:30am",
+          "shortname": "Jennifer_Jerome",
+          "artist": "Jennifer Jerome",
+          "room": "Elizabeth Hall",
+          "description": "Jennifer Jerome, a native of New Orleans, whose work has centered around abstract images that depict flooding and rebuilding, will talk about how the floods inspired her artistically, and how, despite the sadness of devastation and lives lost, her work also depicts the hope and togetherness of a community that has persevered.",
+          "title": "Water in Art Kickoff Session"
+        },{
+          "time": "10:30am-1pm",
+          "room": "Fountain of Intrigue",
+          "description": "Get on your mittens and earmuffs, and join your fellow artists at the Fountain of Intrigue, in the Hotel Contempo gardens, where the ambient temperature has been turned down to allow the sculpting of ice into the most mysterious and beautiful of shapes. Various masters will share their secrets for chiseling ice into a shape that their imagination has envisioned.",
+          "title": "Ice Sculptures"
+        },{
+          "time": "2:30-4:00pm",
+          "shortname": "Hillary_Goldwynn",
+          "artist": "Hillary Hewitt Goldwynn-Post",
+          "room": "Dennison Hall",
+          "description": "Hilary Goldywynn Post has been inspiring deep sea divers to paint what they experience under water, since she began diving at the early age of 14. Not only does she explain texture, color, and tools, but she also explains methods for capturing your under sea explorations in your mind for future expulsion onto canvas. And, even if snorkeling is as far under water as you're willing to go, Hilary's techniques will work just as well for you.",
+          "title": "Deep Sea Wonders"
+        }
+      ]
+    }, {
+      "weekday": "Wednesday",
+      "schedule": [
+        {
+          "time": "9:30 to 10:30 am",
+          "shortname": "Barot_Bellingham",
+          "artist": "Barot Bellingham",
+          "room": "Elizabeth Hall",
+          "description": "Barot Bellingham's new collection is pieced together from seemingly unrelated individual works of varying topic. From portraits to landscapes to abstract, Barot does it all, and does it all well. The only unifying factor is the excellence in form, technique, color, and balance that exudes from each and every individual work in The Un-Collection. Meet Barot, and his undeniably original collection of art, and be forever enchanted.",
+          "title": "The Un-Collection"
+        },{
+          "time": "10:45 to 12:00 pm",
+          "shortname": "Xhou_Ta",
+          "artist": "Xhou Ta",
+          "room": "Dennison Hall",
+          "description": "Get a glimpse at the rare offerings in Xhou's exhibit, ranging from an exquisite skyscraper painted on a grain of rice, to a miniature sculpture of an oak tree filled with detailed animals, the size of a thimble. Items are shown on a large screen, using Xhou's patented rear-projection device that magnifies the image to reveal incredible detail. Beyond the Naked Eye is a fantastic exhibit that blends art and science in a most magical way.",
+          "title": "Beyond the Naked Eye"
+        }
+      ]
+    }, {
+      "weekday": "Thursday",
+      "schedule": [
+        {
+          "time": "09:30 to 10:30 am",
+          "shortname": "Hassum_Harrod",
+          "artist": "Hassum Harrod",
+          "room": "Elizabeth Hall",
+          "description": "Hassum's inherent ability to create color palettes that illuminate an image and allure an audience, has drawn praise from traditionalists as well as modern artists - no small feat in today's diverse art world. His master's thesis at San Francisco Art Academy is entitled \"Color Upon Color – The Mixing and Reinventing of Color.\" It is this thesis that prompted Hillford & Bilken to publish his solo-authored book on color, that will be used in undergraduate art programs throughout the world starting next year.",
+          "title": "The Use and Absence of Color in Modern Art"
+        },{
+          "time": "10:30 to 11:30 am",
+          "shortname": "Constance_Smith",
+          "artist": "Constance Olivia Smith",
+          "room": "Victoria Hall",
+          "description": "In the Art of Salvaging, Olivia will share her talent for finding and selecting scrap materials, as well as the philosophy behind several of her more celebrated works of art. If you're interested in recycling and mixed media, this session will include a lively discussion of both, from the woman who Art International Digest calls the \"foremost queen of scrap art.\"",
+          "title": "The Art of Salvaging"
+        },{
+          "time": "1:30 to 2:30",
+          "shortname": "Riley_Rewington",
+          "artist": "Riley Rudolph Rewington",
+          "room": "Dennison Hall",
+          "description": "The leader of the MMA artistic movement in his hometown of Portland, Riley Rudolph Rewington draws a crowd wherever he goes. Mixing street performance, video, music, and traditional art, Riley has created some of the most unique and deeply poignant abstract works of his generation. Join Riley in Dennison Hall for an intimate discussion on The Art of Abstract, in which he shares his philosophies about modern abstract art, and critiques some of this own work – with complete candor and a healthy dose of personality.",
+          "title": "The Art of Abstract"
+        }
+      ]
+    }
+  ],
+  "artists": [
+    {
+      "bio": "Barot has just finished his final year at The Royal Academy of Painting and Sculpture, where he excelled in glass etching paintings and portraiture. Hailed as one of the most diverse artists of his generation, Barot is equally as skilled with watercolors as he is with oils, and is just as well-balanced in different subject areas. Barot's collection entitled 'The Un-Collection' will adorn the walls of Gilbert Hall, depicting his range of skills and sensibilities - all of them, uniquely Barot, yet undeniably different",
+      "shortname": "Barot_Bellingham",
+      "name": "Barot Bellingham",
+      "reknown": "Royal Academy of Painting and Sculpture"
+    },{
+      "bio": "The Artist to Watch in 2012 by the London Review, Johnathan has already sold one of the highest priced-commissions paid to an art student, ever on record. The piece, entitled Gratitude Resort, a work in oil and mixed media, was sold for $750,000 and Jonathan donated all the proceeds to Art for Peace, an organization that provides college art scholarships for creative children in developing nations",
+      "shortname": "Jonathan_Ferrar",
+      "name": "Jonathan G. Ferrar II",
+      "reknown": "Artist to Watch in 2012"
+    },{
+      "bio": "Hillary is a sophomore art sculpture student at New York University, and has already won all the major international prizes for new sculptors, including the Divinity Circle, the International Sculptor's Medal, and the Academy of Paris Award. Hillary's CAC exhibit features 25 abstract watercolor paintings that contain only water images including waves, deep sea, and river.",
+      "shortname": "Hillary_Goldwynn",
+      "name": "Hillary Hewitt Goldwynn-Post",
+      "reknown": "New York University"
+    },{
+      "bio": "The Art College in New Dehli has sponsored Hassum on scholarship for his entire undergraduate career at the university, seeing great promise in his contemporary paintings of landscapes - that use equal parts muted and vibrant tones, and are almost a contradiction in art. Hassum will be speaking on 'The use and absence of color in modern art' during Thursday's agenda.",
+      "shortname": "Hassum_Harrod",
+      "name": "Hassum Harrod",
+      "reknown": "Art College in New Dehli"
+    },{
+      "bio": "A native of New Orleans, much of Jennifer's work has centered around abstract images that depict flooding and rebuilding, having grown up as a teenager in the post-flood years. Despite the sadness of devastation and lives lost, Jennifer's work also depicts the hope and togetherness of a community that has persevered. Jennifer's exhibit will be discussed during Tuesday's Water in Art theme.",
+      "shortname": "Jennifer_Jerome",
+      "name": "Jennifer Jerome",
+      "reknown": "New Orleans, LA"
+    },{
+      "bio": "LaVonne's giant-sized paintings all around Chicago tell the story of love, nature, and conservation - themes that are central to her heart. LaVonne will share her love and skill of graffiti art on Monday's schedule, as she starts the painting of a 20-foot high wall in the Rousseau Room of Hotel Contempo in front of a standing-room only audience in Art in Unexpected Places.",
+      "shortname": "LaVonne_LaRue",
+      "name": "LaVonne L. LaRue",
+      "reknown": "Chicago, IL"
+    },{
+      "bio": "Constance received the Fullerton-Brighton-Norwell Award for Modern Art for her mixed-media image of a tree of life, with jewel-adorned branches depicting the arms of humanity, and precious gemstone-decorated leaves representing the spouting buds of togetherness. The daughter of a New York jeweler, Constance has been salvaging the discarded remnants of her father's jewelry-making since she was five years old, and won the New York State Fair grand prize at the age of 8 years old for a gem-adorned painting of the Manhattan Bridge.",
+      "shortname": "Constance_Smith",
+      "name": "Constance Olivia Smith",
+      "reknown": "Fullerton-Brighton-Norwell Award"
+    },{
+      "bio": "A first-year student at the Roux Academy of Art, Media, and Design, Riley is already changing the face of modern art at the university. Riley's exquisite abstract pieces have no intention of ever being understood, but instead beg the viewer to dream, create, pretend, and envision with their mind's eye. Riley will be speaking on the 'Art of Abstract' during Thursday's schedule",
+      "shortname": "Riley_Rewington",
+      "name": "Riley Rudolph Rewington",
+      "reknown": "Roux Academy of Art, Media, and Design"
+    },{
+      "bio": "A senior at the China International Art University, Xhou has become well-known for his miniature sculptures, often the size of a rice granule, that are displayed by rear projection of microscope images on canvas. Xhou will discuss the art and science behind his incredibly detailed works of art.",
+      "shortname": "Xhou_Ta",
+      "name": "Xhou Ta",
+      "reknown": "China International Art University"
+    }
+  ]
+}
+//directives
+angular.module('starter', [])
+ 
+.directive('noScroll', function() {
+    return {
+        restrict: 'A',
+        link: function($scope, $element, $attr) {
+            $element.on('touchmove', function(e) {
+                e.preventDefault();
+            });
+        }
+    }
+})
+// DIRECTIVES
+.directive("weatherReport", function() {
+   return {
+       restrict: 'E',
+       templateUrl: 'directives/weatherReport.html',
+       replace: true,
+       scope: {
+           weatherDay: "=",
+           convertToStandard: "&",
+           convertToDate: "&",
+           dateFormat: "@"
+       }
+   }
+})
+
+
+//factories
+angular.module('myapp.factories', [])
+
+.factory('FeedLoader', function ($resource){
+  return $resource('http://ajax.googleapis.com/ajax/services/feed/load', {}, {
+    fetch: { method: 'JSONP', params: {v: '1.0', callback: 'JSON_CALLBACK'} }
+  });
+})
+
+//page services
+angular.module('pageservices', [])
+.service('pageservice', function ( $http,$rootScope, $q){
+   $rootScope = 'http://eurestkantine.com/wp-json/wp/v2/';
+ this.getWordpressPage = function(page_slug) {
+    var deferred = $q.defer();
+
+    $http.get($rootScope + 'pages/' +  '?slug='+ page_slug )
+    .success(function(data) {
+      deferred.resolve(data);
+    })
+    .error(function(data) {
+      deferred.reject(data);
+    });
+    return deferred.promise;
+  };
+  });
+
 
 
 
